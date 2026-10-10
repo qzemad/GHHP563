@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lecture 3: Living dangerously? Health-risk behaviour (Health Psychology) (student copy)</title>
+
+<style id="deck-engine-css">
+/* ==========================================================================
+   lecture-deck engine CSS. Theme tokens come from theme.css (see
+   references/design.md). Never hard-code colours here; use var(--token).
+   Canvas: fixed 1600x900 stage, scaled to fit any screen.
+   ========================================================================== */
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+a{color:inherit;text-decoration-color:var(--line);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* ---------- stage ---------- */
+#viewport{position:fixed;inset:0;background:var(--bg);overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform-origin:center center;background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidden}
+#stage.bg-grid::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--faint) 1px,transparent 1px),linear-gradient(90deg,var(--faint) 1px,transparent 1px);
+  background-size:80px 80px;mask-image:radial-gradient(ellipse at 70% 40%,#000 0%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 70% 40%,#000 0%,transparent 75%)}
+.slide{position:absolute;inset:0;padding:72px 104px 130px;display:none;flex-direction:column;gap:28px;transition:transform .45s cubic-bezier(.3,.8,.2,1)}
+.slide.active{display:flex}
+.slide.center{justify-content:center}
+.slide aside.notes{display:none!important}
+
+/* ---------- chrome ---------- */
+#sectionLabel{position:absolute;top:30px;left:104px;font-size:20px;color:var(--muted);z-index:5}
+#slideNum{position:absolute;top:30px;right:104px;font-size:20px;color:var(--muted);font-variant-numeric:tabular-nums;z-index:5}
+#hud{position:absolute;top:26px;right:200px;font-size:18px;color:var(--muted);font-variant-numeric:tabular-nums;display:none;z-index:5;border:1px solid var(--line);padding:4px 12px;border-radius:20px}
+#hud.on{display:block}
+.ahead{color:var(--cat3)} .behind{color:var(--cat1)}
+#progress{position:absolute;left:0;right:0;bottom:22px;height:80px;z-index:5;cursor:pointer}
+#progress svg{width:100%;height:100%;overflow:visible}
+#progBase{fill:none;stroke:var(--line);stroke-width:2}
+#progDone{fill:none;stroke:var(--accent);stroke-width:2.5;filter:drop-shadow(0 0 6px var(--accent))}
+#progDot{fill:var(--accent)}
+#progDot.beat{animation:beat .6s ease-out}
+@keyframes beat{0%{r:6}30%{r:14}100%{r:6}}
+
+/* ---------- type ---------- */
+h1,h2,h3{font-family:var(--display);font-weight:var(--display-weight,400);margin:0;line-height:1.08;letter-spacing:-.005em}
+h1{font-size:132px}
+h2{font-size:62px;max-width:1300px}
+h3{font-size:36px;line-height:1.15}
+p,li{font-size:29px;line-height:1.42;margin:0;max-width:1250px}
+.lead{font-size:36px;line-height:1.35;max-width:1200px}
+.small,.small li{font-size:22px;line-height:1.4}
+.muted{color:var(--muted)}
+.cite{font-size:19px;color:var(--muted)}
+.accent{color:var(--accent)} .c1{color:var(--cat1)} .c2{color:var(--cat2)} .c3{color:var(--cat3)} .c4{color:var(--cat4)}
+.q{font-family:var(--display);font-size:46px;line-height:1.22;max-width:1250px}
+.q .who{display:block;font-family:var(--body);font-size:22px;color:var(--muted);margin-top:18px}
+ul.clean{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+ul.clean li{padding-left:30px;position:relative}
+ul.clean li::before{content:"";position:absolute;left:0;top:.62em;width:14px;height:2px;background:var(--muted)}
+.big-number{font-family:var(--display);font-size:120px;line-height:1}
+.tag{display:inline-block;font-size:18px;padding:3px 12px;border:1px solid var(--line);border-radius:14px;color:var(--muted);margin-right:6px}
+kbd{font-family:var(--body);border:1px solid var(--line);border-radius:4px;padding:1px 8px;font-size:.9em}
+
+/* ---------- layout ---------- */
+.row{display:flex;gap:40px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:40px 64px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.fill{flex:1;min-height:0}
+.push{margin-top:auto}
+.panel{border-top:2px solid var(--line);padding-top:18px}
+.panel.c1{border-color:var(--cat1)} .panel.c2{border-color:var(--cat2)} .panel.c3{border-color:var(--cat3)} .panel.c4{border-color:var(--cat4)} .panel.accent{border-color:var(--accent)}
+.panel.c1,.panel.c2,.panel.c3,.panel.c4,.panel.accent{color:var(--ink)}
+.panel h3{margin-bottom:10px}
+
+/* ---------- images ---------- */
+.fig{margin:0;display:flex;flex-direction:column;gap:6px;min-height:0}
+.fig img{width:100%;flex:1;min-height:0;object-fit:cover;border-radius:4px;display:block;background:var(--bg2)}
+.fig figcaption{font-size:14px;line-height:1.3;color:var(--muted)}
+.thumb{width:92px;height:92px;object-fit:cover;border-radius:4px;float:right;margin:0 0 8px 14px}
+
+/* ---------- fragments ---------- */
+.frag{opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease}
+.frag.shown{opacity:1;transform:none}
+
+/* ---------- buttons ---------- */
+.btn{background:transparent;border:1.5px solid var(--line);border-radius:30px;padding:10px 22px;font-size:22px;cursor:pointer;transition:background .2s,border-color .2s}
+.btn:hover{border-color:var(--ink)}
+.btn.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* ---------- widget: flip cards ---------- */
+.flip{perspective:1400px;cursor:pointer;min-height:280px}
+.flip .inner{position:relative;width:100%;height:100%;min-height:280px;transition:transform .7s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.flip.open .inner{transform:rotateY(180deg)}
+.flip .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1.5px solid var(--line);border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:8px;overflow:hidden;background:var(--bg2)}
+.flip .back{transform:rotateY(180deg);background:var(--bg3)}
+.flip h3{font-size:32px} .flip p{font-size:22px}
+.flip .hint{margin-top:auto;font-size:17px;color:var(--muted)}
+.flip .card-img{width:calc(100% + 52px);margin:-26px -26px 6px;height:210px;min-height:210px;object-fit:cover;border-radius:5px 5px 0 0;display:block}
+.flip .credit{font-size:12px;color:var(--muted);opacity:.85}
+
+/* ---------- widget: click-to-reveal ([data-toggle]) ---------- */
+[data-toggle]{cursor:pointer}
+[data-toggle] .when-open{display:none}
+[data-toggle].open .when-open{display:revert}
+[data-toggle].open .when-closed{display:none}
+.card{border:1.5px solid var(--line);border-radius:6px;padding:14px 18px;background:var(--bg2);text-align:left;display:flex;flex-direction:column;gap:6px}
+.card.open{background:var(--bg3)}
+.card .val{font-family:var(--display);font-size:40px;line-height:1.1}
+.pick{border:1.5px solid var(--line);background:transparent;border-radius:6px;padding:12px 16px;font-size:22px;text-align:left}
+.pick.open{background:var(--bg3);border-color:var(--accent)}
+.quiz-item{border-bottom:1px solid var(--faint);padding:10px 0;display:grid;grid-template-columns:1fr 400px;gap:20px;align-items:center;font-size:24px}
+.quiz-item .btn{justify-self:end;min-width:140px;min-height:48px}
+.quiz-item .when-open{font-family:var(--display);font-size:26px;white-space:nowrap}
+
+/* ---------- widget: tabs / timeline / dial ---------- */
+[data-tab]{cursor:pointer}
+[data-pane][hidden]{display:none!important}
+.timeline{position:relative;display:flex;justify-content:space-between;align-items:flex-end;height:110px}
+.timeline::before{content:"";position:absolute;left:0;right:0;bottom:22px;height:2px;background:var(--line)}
+.timeline [data-tab]{position:relative;background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0;min-width:80px}
+.timeline [data-tab] .d{width:18px;height:18px;border-radius:50%;background:var(--bg);border:2px solid var(--muted);transition:all .25s;position:relative;z-index:1;margin-bottom:13px}
+.timeline [data-tab] .y{font-size:16px;color:var(--muted);text-align:center;line-height:1.2}
+.timeline [data-tab].on .d{background:var(--accent);border-color:var(--accent);transform:scale(1.35)}
+.timeline [data-tab].on .y{color:var(--ink)}
+.dial{display:flex;align-items:center;gap:16px;font-size:20px;color:var(--muted)}
+.dial .track{flex:1;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--cat3),var(--cat4));position:relative;max-width:520px}
+.dial .knob{position:absolute;top:50%;left:var(--dial,50%);width:26px;height:26px;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%);transition:left .6s cubic-bezier(.3,.8,.2,1);box-shadow:0 0 0 5px var(--bg)}
+svg [data-tab]{transition:opacity .25s}
+[data-tabs].has-sel svg [data-tab]:not(.on){opacity:.3}
+
+/* ---------- widget: stepper (reveal rows one by one) ---------- */
+[data-stepper] [data-step-item]{transition:filter .4s,opacity .4s}
+[data-stepper] [data-step-item].hid{filter:blur(9px);opacity:.45}
+.rank-row{display:grid;grid-template-columns:44px 380px 1fr 150px;gap:16px;align-items:center;font-size:22px;padding:3px 0;border-bottom:1px solid var(--faint)}
+.rank-row .rk{font-family:var(--display);font-size:26px;color:var(--muted)}
+.rank-row .bt{height:18px;background:var(--muted);width:0;transition:width 1s cubic-bezier(.2,.8,.2,1),background .4s}
+.rank-row:not(.hid) .bt{width:var(--w)}
+.rank-row .vl{text-align:right;font-variant-numeric:tabular-nums}
+.mark-on .rank-row.flag .bt{background:var(--accent)}
+.mark-on .rank-row.flag .nm{color:var(--accent)}
+
+/* ---------- widget: sort into categories ---------- */
+.sort-item{border:1.5px solid var(--line);border-radius:30px;padding:10px 20px;font-size:22px;background:transparent;cursor:pointer;transition:all .25s}
+.sort-item[data-c="1"]{border-color:var(--cat1);background:var(--cat1-t)}
+.sort-item[data-c="2"]{border-color:var(--cat2);background:var(--cat2-t)}
+.sort-item[data-c="3"]{border-color:var(--cat3);background:var(--cat3-t)}
+.sort-item[data-c="4"]{border-color:var(--cat4);background:var(--cat4-t)}
+
+/* ---------- widget: bars, counters, countdown ---------- */
+.bars{display:flex;flex-direction:column;gap:9px}
+.bar-row{display:grid;grid-template-columns:220px 1fr 110px;align-items:center;gap:18px;font-size:22px}
+.bar-track{height:26px;position:relative;border-left:1.5px solid var(--line)}
+.bar-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--cat3);transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.bar-val{font-variant-numeric:tabular-nums;opacity:0;transition:opacity .4s .8s}
+.bars.revealed .bar-val{opacity:1}
+.count{font-family:var(--display);font-size:88px;line-height:1;font-variant-numeric:tabular-nums}
+[data-countdown] [data-cd-display]{font-family:var(--display);font-size:160px;line-height:1;font-variant-numeric:tabular-nums}
+[data-countdown].done [data-cd-display]{color:var(--cat1)}
+
+/* ---------- widget: continuum slider ---------- */
+.continuum{position:relative;height:120px;margin:40px 0 0}
+.continuum .line{position:absolute;left:0;right:0;top:50px;height:10px;border-radius:5px;background:linear-gradient(90deg,var(--cat1),var(--cat2),var(--cat3))}
+.continuum input{position:absolute;left:0;right:0;top:34px;width:100%;appearance:none;-webkit-appearance:none;background:transparent;height:42px;margin:0}
+.continuum input::-webkit-slider-thumb{-webkit-appearance:none;width:40px;height:40px;border-radius:50%;background:var(--ink);border:4px solid var(--bg);cursor:grab}
+.continuum input::-moz-range-thumb{width:34px;height:34px;border-radius:50%;background:var(--ink);border:4px solid var(--bg);cursor:grab}
+.continuum .ends{position:absolute;left:0;right:0;top:92px;display:flex;justify-content:space-between;font-size:22px;color:var(--muted)}
+
+/* ---------- presenting tools (inside the stage) ---------- */
+#ink{position:absolute;left:0;top:0;width:1600px;height:900px;z-index:20;pointer-events:none}
+body.tool-pen #ink{pointer-events:auto;cursor:crosshair}
+#laser{position:absolute;z-index:30;left:0;top:0;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;pointer-events:none;display:none;
+  background:radial-gradient(circle,#fff 0 16%,var(--laser,#ff2a2a) 30%,rgba(255,42,42,0) 72%);box-shadow:0 0 20px 7px var(--laser-glow,rgba(255,40,40,.55))}
+#spot{position:absolute;inset:0;z-index:25;pointer-events:none;display:none}
+mark.hl{background:var(--hl,rgba(255,214,0,.55));color:inherit;border-radius:3px;padding:0 .06em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+body.tool-hl #stage .slide{cursor:text;user-select:none;-webkit-user-select:none}
+body.tool-zoom #stage .slide{cursor:zoom-in}
+body.tool-laser #stage,body.tool-spot #stage{cursor:none}
+body.hide-cursor,body.hide-cursor *{cursor:none!important}
+#toolBadge{position:absolute;top:24px;left:50%;transform:translateX(-50%);z-index:6;font-size:17px;padding:4px 14px;border-radius:20px;background:var(--bg3);color:var(--ink);border:1px solid var(--line);display:none}
+#toolBadge.on{display:block}
+
+/* ---------- overlays ---------- */
+.overlay{position:fixed;inset:0;z-index:50;display:none;background:var(--bg);color:var(--ink)}
+.overlay.on{display:block}
+#overview{overflow:auto;padding:40px}
+#overview .ovgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+#overview button{text-align:left;border:1px solid var(--line);background:var(--bg2);padding:12px 14px;border-radius:6px;cursor:pointer;font-size:15px;min-height:84px}
+#overview button .n{color:var(--muted);font-size:13px;display:block}
+#overview button.cur{border-color:var(--accent)}
+#overview h4{font-family:var(--display);font-weight:400;font-size:24px;margin:26px 0 10px}
+#blank{background:#000}
+#whiteout{background:#fff}
+#help{padding:44px 60px;font-size:18px;overflow:auto}
+#help h2{font-size:44px;margin-bottom:6px}
+#help .cols{display:grid;grid-template-columns:1fr 1fr;gap:10px 60px}
+#help table{border-collapse:collapse;margin-top:10px;width:100%}
+#help td{padding:6px 18px 6px 0;border-bottom:1px solid var(--faint);vertical-align:top}
+#timerBox{position:fixed;z-index:40;right:28px;top:84px;display:none;background:var(--bg2);border:1.5px solid var(--line);border-radius:10px;padding:14px 18px;min-width:230px;color:var(--ink)}
+#timerBox.on{display:block}
+#timerBox .t{font-family:var(--display);font-size:56px;font-variant-numeric:tabular-nums;line-height:1}
+#timerBox .row{gap:8px;margin-top:10px;flex-wrap:wrap}
+#timerBox .btn{font-size:15px;padding:5px 12px}
+#timerBox.done .t{color:var(--cat1);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.3}}
+#toast{position:fixed;left:50%;bottom:calc(60px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;background:var(--bg3);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:12px 18px;font-size:16px;max-width:680px;display:none;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+#toast.on{display:block}
+#hint{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(8px + env(safe-area-inset-bottom,0px));font-size:13px;color:var(--muted);z-index:6;opacity:.8;transition:opacity 1s;pointer-events:none}
+
+/* ---------- presenter view (#presenter) ---------- */
+#pv{display:none}
+body.presenter{background:#111820;color:#e8eef4}
+body.presenter #pv{display:grid;position:fixed;inset:0;grid-template-columns:minmax(0,var(--pvL,1.6fr)) 10px minmax(200px,1fr);grid-template-rows:auto minmax(0,1fr) auto 10px minmax(0,var(--pvN,.85fr));gap:6px 6px;padding:12px;padding-top:calc(12px + env(safe-area-inset-top,0px));padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));font-family:var(--body)}
+body.presenter #viewport{position:relative;inset:auto;grid-column:1;grid-row:2 / span 2;border-radius:8px;outline:1px solid rgba(255,255,255,.14);min-height:0}
+#pvBar{grid-column:1 / -1;grid-row:1;display:flex;align-items:center;gap:22px;font-size:16px;flex-wrap:wrap}
+#pvBar .big{font-size:30px;font-variant-numeric:tabular-nums;font-weight:700;line-height:1.1}
+#pvBar .lbl{font-size:12px;opacity:.6;display:block}
+#pvBar .sp{flex:1}
+/* presenter chrome buttons only: never style buttons inside the live slide (#viewport) */
+#pvBar button,#pvTools button,#pvNotesBar button{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);color:#e8eef4;border-radius:6px;padding:6px 12px;font-size:14px;cursor:pointer}
+#pvBar button:hover,#pvTools button:hover,#pvNotesBar button:hover{background:rgba(255,255,255,.14)}
+#pvTools button.on{background:#e8eef4;color:#111820}
+#pvTools kbd{border-color:currentColor;opacity:.7}
+/* what the audience sees when blanked, shown over the presenter's live slide */
+#pvScreen{display:none;position:absolute;inset:0;z-index:40;align-items:center;justify-content:center;font:600 22px/1.3 var(--body);pointer-events:none}
+#pvScreen.black{display:flex;background:rgba(0,0,0,.72);color:#fff}
+#pvScreen.white{display:flex;background:rgba(255,255,255,.8);color:#111}
+#pvNextWrap{grid-column:3;grid-row:2;display:flex;flex-direction:column;gap:6px;min-height:0}
+#pvNextLbl{font-size:14px;opacity:.8}
+#pvNext{position:relative;flex:1;min-height:0;border-radius:8px;overflow:hidden;outline:1px solid rgba(255,255,255,.14);background:var(--bg)}
+#pvNextStage{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform-origin:center center;background:var(--bg);color:var(--ink);overflow:hidden;pointer-events:none}
+#pvNextStage .slide{display:flex}
+#pvNextStage .frag{opacity:1;transform:none}
+#pvTools{grid-column:3;grid-row:3;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}
+#pvNotesWrap{grid-column:1 / -1;grid-row:5;display:flex;flex-direction:column;min-height:0;background:rgba(255,255,255,.04);border-radius:8px;border:1px solid rgba(255,255,255,.1)}
+#pvNotesBar{display:flex;gap:8px;align-items:center;padding:8px 12px;font-size:13px;opacity:.9;border-bottom:1px solid rgba(255,255,255,.08)}
+#pvNotes{overflow:auto;padding:12px 18px;font-size:var(--notes-size,20px);line-height:1.5}
+#pvNotes p,#pvNotes li{font-size:inherit;max-width:none;margin:0 0 .45em}
+#pvNotes ul,#pvNotes ol{margin:0 0 .5em;padding-left:1.2em}
+#pvNotes .none{opacity:.5}
+body.presenter #hint{display:none}
+body.presenter #timerBox{top:auto;bottom:24px;right:24px}
+/* drag bars between the panels (presenter layout is remembered per browser) */
+.pvSplit{display:none;border-radius:4px;position:relative;touch-action:none;outline:none}
+body.presenter .pvSplit{display:block}
+#pvVSplit{grid-column:2;grid-row:2 / span 2;cursor:col-resize}
+#pvHSplit{grid-column:1 / -1;grid-row:4;cursor:row-resize}
+.pvSplit::after{content:"";position:absolute;background:rgba(255,255,255,.22);border-radius:3px;transition:background .15s}
+#pvVSplit::after{left:3px;right:3px;top:50%;height:56px;margin-top:-28px}
+#pvHSplit::after{top:3px;bottom:3px;left:50%;width:56px;margin-left:-28px}
+.pvSplit:hover,.pvSplit.drag,.pvSplit:focus-visible{background:rgba(255,255,255,.08)}
+.pvSplit:hover::after,.pvSplit.drag::after,.pvSplit:focus-visible::after{background:#7fb8ff}
+body.pv-dragging,body.pv-dragging *{user-select:none!important}
+body.pv-dragging #viewport,body.pv-dragging #pvNext{pointer-events:none}
+@media (max-width:900px){
+  body.presenter #pv{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr) auto minmax(0,1fr)}
+  body.presenter #viewport{grid-column:1;grid-row:2}
+  body.presenter .pvSplit{display:none}
+  #pvNextWrap{display:none}
+  #pvTools{grid-column:1;grid-row:3}
+  #pvNotesWrap{grid-column:1;grid-row:4}
+}
+
+/* ---------- edit mode (Shift+E) ---------- */
+#edBar{display:none}
+body.editing #edBar{display:flex;position:fixed;left:0;right:0;top:0;z-index:70;height:52px;box-sizing:border-box;align-items:center;gap:8px;padding:0 12px;background:#1b2530;color:#e8eef4;font:15px/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+#edBar b{font-weight:700;margin-right:4px;color:#ffd166}
+#edBar .sp{flex:1}
+#edBar #edWhich{min-width:150px;text-align:center;font-variant-numeric:tabular-nums}
+#edBar #edStatus{opacity:.75;font-size:13px}
+#edBar button,#edSave button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.25);color:#e8eef4;border-radius:6px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer;white-space:nowrap}
+#edBar button:hover:not(:disabled),#edSave button:hover{background:rgba(255,255,255,.16)}
+#edBar button:disabled{opacity:.4;cursor:default}
+#edBar button.pri,#edSave button.pri{background:#ffd166;color:#1b2530;border-color:#ffd166;font-weight:700}
+#edSave button.warn{border-color:#ff8a80;color:#ffb4ab}
+body.editing:not(.presenter) #viewport{top:52px;bottom:190px}
+body.editing.presenter #pv{padding-top:62px}
+body.editing #hint,body.editing #hud{display:none}
+#edNotesWrap{display:none}
+body.editing:not(.presenter) #edNotesWrap{display:flex;flex-direction:column;position:fixed;left:0;right:0;bottom:0;height:190px;z-index:60;background:#1b2530;color:#e8eef4;font-family:var(--body)}
+#edNotesWrap .lbl{font-size:13px;opacity:.75;padding:8px 16px 4px}
+#edNotes{flex:1;overflow:auto;padding:4px 16px 12px;font-size:17px;line-height:1.5;outline:none}
+#edNotes p,#edNotes li{font-size:inherit;max-width:none;margin:0 0 .4em}
+#edNotes ul,#edNotes ol{margin:0 0 .5em;padding-left:1.2em}
+#edNotes:empty::before,#pvNotes[contenteditable]:empty::before{content:"Type speaker notes here";opacity:.45}
+body.editing #pvNotes{outline:2px solid rgba(255,209,102,.5);outline-offset:-2px;border-radius:6px}
+body.editing #stage .slide.active{cursor:text;outline:none}
+body.editing #stage .slide.active :is(h1,h2,h3,h4,p,li,td,th,figcaption,blockquote,.tag,button,.pick,.card,.lead,span):hover{outline:1px dashed color-mix(in srgb,var(--accent) 70%,transparent);outline-offset:3px}
+body.editing #stage .frag{opacity:1!important;transform:none!important}
+body.editing #stage [data-step-item].hid{filter:none!important;opacity:1!important}
+body.editing #stage [data-toggle] .when-open{display:revert}
+body.editing #stage .flip.ed-open .inner{transform:rotateY(180deg)}
+#stage.ed-hidden::after,#stage.ed-deleted::after{position:absolute;top:16px;right:16px;z-index:30;font:700 20px/1 system-ui,sans-serif;padding:10px 16px;border-radius:6px;pointer-events:none}
+#stage.ed-hidden::after{content:"Hidden: skipped when presenting";background:#ffd166;color:#1b2530}
+#stage.ed-deleted::after{content:"Deleted: removed when you save";background:#d64545;color:#fff}
+#overview button.skip{opacity:.55;border-style:dashed}
+#edSave{background:rgba(10,15,20,.72);z-index:80}
+#edSave .box{max-width:720px;margin:8vh auto 0;background:#1b2530;color:#e8eef4;border-radius:10px;padding:26px 30px;font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+#edSave h2{font:700 26px/1.2 system-ui,sans-serif;margin:0 0 6px;color:#fff}
+#edSave p{max-width:none;font-size:15px;margin:0 0 12px}
+#edSave .note{opacity:.8}
+#edSave .acts{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+#edSave .act{display:grid;grid-template-columns:230px 1fr;gap:14px;align-items:center}
+#edSave .act span{font-size:14px;opacity:.8}
+#edSave button.lnk{background:none;border:0;padding:0;color:#7fb8ff;text-decoration:underline;font-size:14px}
+#edSave #edMsg{min-height:1.4em;color:#ffd166}
+
+/* ---------- optional motion helpers for a title slide ---------- */
+.draw path{fill:none;stroke:var(--accent);stroke-width:3;stroke-dasharray:3000;stroke-dashoffset:3000}
+.slide.active .draw path{animation:draw 2.8s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.rise{opacity:0}
+.slide.active .rise{animation:rise 1s var(--delay,1.6s) ease-out forwards}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+#pvNextStage .rise{opacity:1}
+#pvNextStage .draw path{stroke-dashoffset:0}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;transition-duration:.01ms!important}
+  .draw path{stroke-dashoffset:0}.rise{opacity:1}
+}
+
+/* ==========================================================================
+   Reader mode (phones, small tablets, ?view=reader). engine.js adds
+   body.reader, maps every element's font size to a phone scale and stacks
+   wide grids/rows; these rules handle the known components.
+   ========================================================================== */
+#mnav{display:none}
+html.reader-html,body.reader{height:100%;overflow:hidden}
+.reader #viewport{position:fixed;inset:0;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.reader #stage{position:relative;left:auto;top:auto;width:100%;max-width:760px;height:auto;min-height:100%;margin:0 auto;
+  transform:none!important;overflow:visible;padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+.reader #stage.bg-grid::before{display:none}
+.reader .slide{position:relative;inset:auto;padding:10px 16px 28px;gap:16px;transition:none;transform:none!important}
+.reader .slide.center{justify-content:flex-start;padding-top:28px}
+.reader #sectionLabel{position:static;display:block;padding:14px 16px 0;font-size:13px;min-height:14px}
+.reader #slideNum,.reader #progress,.reader #hud,.reader #toolBadge,.reader #ink,.reader #laser,.reader #spot,.reader #hint{display:none!important}
+.reader .frag{opacity:1;transform:none}
+.reader .rise{opacity:1;animation:none!important}
+.reader h1,.reader h2,.reader h3,.reader p,.reader li,.reader .lead,.reader .q{max-width:none}
+.reader .slide [style*="width"]:not(.bar-fill):not(.knob):not(.thumb){width:auto!important;max-width:100%!important}
+.reader .slide [style*="height"]:not(.bar-track):not(.thumb):not(.bt){height:auto!important}
+.reader .slide [style*="float"]:not(.thumb){float:none!important}
+.reader .grid2,.reader .grid3{grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
+.reader .grid4{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+.reader .grid4:has(.flip){grid-template-columns:minmax(0,1fr)!important}
+.reader .row{flex-direction:column;gap:14px!important;align-items:stretch!important}
+.reader .row:has(> button,> .btn,> .tag,> .sort-item,> .pick){flex-direction:row;flex-wrap:wrap;align-items:center!important;gap:8px!important}
+.reader .fill{flex:none}
+.reader .fig{width:100%!important;height:auto!important;max-width:560px;margin:0!important;flex:none!important}
+.reader .fig img{flex:none;width:auto;max-width:100%;height:auto;max-height:280px;align-self:flex-start;object-fit:contain}
+.reader .fig figcaption{max-width:100%}
+.reader .thumb{width:64px!important;height:64px!important}
+.reader .slide svg{max-width:100%;height:auto}
+.reader .slide svg.draw{position:static!important;width:100%!important;height:auto!important}
+.reader .panel{padding-top:12px}
+.reader ul.clean{gap:10px}
+.reader ul.clean li{padding-left:20px}
+.reader ul.clean li::before{width:10px}
+.reader .btn{padding:8px 16px;min-height:40px}
+.reader .timeline{overflow-x:auto;justify-content:flex-start;gap:2px;height:auto;padding:4px 0;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.reader .timeline::before{display:none}
+.reader .timeline [data-tab]{min-width:68px;flex:none;gap:6px}
+.reader .timeline [data-tab] .d{margin-bottom:4px}
+.reader .dial .track{max-width:none}
+.reader .flip{min-height:0}
+.reader .flip .inner{display:grid;min-height:0;height:auto}
+.reader .flip .face{position:relative;inset:auto;grid-area:1/1;padding:18px}
+.reader .flip .card-img{width:calc(100% + 36px);margin:-18px -18px 6px;height:170px;min-height:170px}
+.reader .card{padding:10px 12px}
+.reader .quiz-item{grid-template-columns:minmax(0,1fr)!important;gap:8px}
+.reader .quiz-item .btn{justify-self:start;min-width:0}
+.reader .quiz-item .when-open{white-space:normal}
+.reader .rank-row{grid-template-columns:26px minmax(0,1fr) auto!important;gap:4px 8px}
+.reader .rank-row > div{order:1;grid-column:2 / -1}
+.reader .bar-row{grid-template-columns:minmax(72px,34%) minmax(0,1fr) auto!important;gap:8px!important}
+.reader .bar-track{height:16px!important}
+.reader .continuum{margin-top:16px}
+.reader #overview{padding:16px 16px calc(90px + env(safe-area-inset-bottom,0px))}
+.reader #overview .ovgrid{grid-template-columns:minmax(0,1fr)}
+.reader #overview button{min-height:0;font-size:15px}
+.reader #help{padding:20px 16px}
+.reader #help .cols{grid-template-columns:1fr}
+.reader #toast{bottom:calc(84px + env(safe-area-inset-bottom,0px));max-width:calc(100% - 32px)}
+.reader #timerBox{top:auto;bottom:calc(84px + env(safe-area-inset-bottom,0px));right:12px}
+.reader #mnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:55;gap:10px;align-items:center;
+  padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:var(--bg2);border-top:1px solid var(--line);color:var(--ink);font-family:var(--body)}
+#mnav button{flex:none;min-width:52px;min-height:46px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:26px;line-height:1;cursor:pointer}
+#mnav button:disabled{opacity:.35}
+#mnav .mid{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:15px;background:transparent;border-color:transparent}
+#mnav .mid .num{font-variant-numeric:tabular-nums;font-weight:700}
+#mnav .mid .sec{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+#mnav .bar{position:absolute;left:0;top:-1px;height:3px;background:var(--accent);transition:width .3s}
+
+/* ---------- live board ([data-board]): the lecturer types while the class answers ---------- */
+.board{min-height:120px;border:2px dashed var(--line);border-radius:10px;padding:14px 18px;font-size:26px;line-height:1.4;background:color-mix(in srgb,var(--bg2) 70%,transparent);outline:none;overflow:auto;cursor:text}
+.board:focus{border-color:var(--accent);border-style:solid}
+.board:empty::before{content:attr(data-placeholder);color:var(--muted);font-style:italic}
+.board p,.board li,.board div{font-size:inherit;max-width:none;margin:0 0 .3em}
+.board ul{margin:0;padding-left:1.1em}
+
+/* presenter: collapse the tool buttons to give the slides more room */
+#pvToolsToggle{opacity:.85}
+body.pv-tools-collapsed #pvTools > button:not(#pvToolsToggle){display:none}
+body.pv-tools-collapsed #pvTools{gap:0}
+
+</style>
+<style id="deck-theme-css">
+/* Example theme: "cyanotype anatomy" (Health Psychology, Lecture 1).
+   Copy this file and change EVERY value for a new deck: the palette and type
+   should come from the subject (see references/design.md).
+   Required tokens: --bg --bg2 --bg3 --ink --muted --faint --line --accent
+   --cat1..--cat4 and their tints --cat1-t..--cat4-t, --display --body.
+   Optional: --pen (pen colour), --hl (highlighter), --laser, --display-weight. */
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Young+Serif&display=swap");
+:root{
+  --display:"Young Serif","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",Verdana,system-ui,sans-serif;
+  --hl:rgba(255,214,0,.55); --pen:#ff4d4d;
+}
+/* dark (default for projection) */
+:root,:root[data-theme="dark"]{
+  --bg:#0F2A4A; --bg2:#15365C; --bg3:#1C4470;
+  --ink:#EAF1F8; --muted:#A3B9D0; --faint:rgba(220,232,245,.16); --line:rgba(220,232,245,.28);
+  --accent:#EF6A6F;
+  --cat1:#EF6A6F; --cat2:#EDB23A; --cat3:#7CCBB6; --cat4:#B7B2E0;
+  --cat1-t:rgba(239,106,111,.16); --cat2-t:rgba(237,178,58,.16); --cat3-t:rgba(124,203,182,.16); --cat4-t:rgba(183,178,224,.16);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#F1F5F9; --bg2:#E3EBF3; --bg3:#D3E0EC;
+    --ink:#0F2A4A; --muted:#4A6582; --faint:rgba(15,42,74,.12); --line:rgba(15,42,74,.26);
+    --accent:#B8323B;
+    --cat1:#B8323B; --cat2:#9A6500; --cat3:#1C7A65; --cat4:#4F4A86;
+    --cat1-t:rgba(184,50,59,.12); --cat2-t:rgba(154,101,0,.12); --cat3-t:rgba(28,122,101,.12); --cat4-t:rgba(79,74,134,.12);
+  }
+}
+:root[data-theme="light"]{
+  --bg:#F1F5F9; --bg2:#E3EBF3; --bg3:#D3E0EC;
+  --ink:#0F2A4A; --muted:#4A6582; --faint:rgba(15,42,74,.12); --line:rgba(15,42,74,.26);
+  --accent:#B8323B;
+  --cat1:#B8323B; --cat2:#9A6500; --cat3:#1C7A65; --cat4:#4F4A86;
+  --cat1-t:rgba(184,50,59,.12); --cat2-t:rgba(154,101,0,.12); --cat3-t:rgba(28,122,101,.12); --cat4-t:rgba(79,74,134,.12);
+}
+
+/* ---- Lecture 1 aliases: the humours double as the biopsychosocial colours ---- */
+:root{--bio:var(--cat1);--psy:var(--cat2);--soc:var(--cat3);--mel:var(--cat4);
+  --bio-t:var(--cat1-t);--psy-t:var(--cat2-t);--soc-t:var(--cat3-t)}
+.bio{color:var(--cat1)} .psy{color:var(--cat2)} .soc{color:var(--cat3)} .mel{color:var(--cat4)}
+.panel.b{border-color:var(--cat1)} .panel.p{border-color:var(--cat2)} .panel.s{border-color:var(--cat3)} .panel.m{border-color:var(--cat4)}
+
+/* ---- deck-specific widgets ---- */
+.humour-wrap{display:grid;grid-template-columns:560px 1fr;gap:60px;align-items:center;flex:1}
+.humour-seg{cursor:pointer;transition:opacity .25s}
+.hum-detail h3{font-size:54px;margin-bottom:12px}
+.hum-detail dl{display:grid;grid-template-columns:200px 1fr;gap:10px 20px;font-size:26px;margin:18px 0}
+.hum-detail dt{color:var(--muted)} .hum-detail dd{margin:0}
+.venn circle{mix-blend-mode:screen;transition:opacity .3s}
+:root[data-theme="light"] .venn circle{mix-blend-mode:multiply}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .venn circle{mix-blend-mode:multiply}}
+.slide.has-sel .venn [data-tab].on{opacity:.85}
+.field-btn{border:1.5px solid var(--line);background:transparent;border-radius:6px;padding:12px 16px;font-size:22px;text-align:left;cursor:pointer}
+.field-btn.on{background:var(--bg3);border-color:var(--cat2)}
+.card.bw{padding:18px 20px}
+.card.bw .quote{font-family:var(--display);font-size:25px;line-height:1.25}
+.card.bw .ansr{margin-top:6px;font-size:19px}
+.icf{flex:1.35 1 0 !important;min-width:0}
+.icf + div{flex:1 1 0 !important;min-width:0}
+.flip .card-img{height:190px;min-height:190px}
+
+</style>
+</head>
+<body>
+<noscript><style id="deck-noscript">
+/* Shown only when scripts are off (e.g. iPhone file preview from Files/WhatsApp): every slide as a readable page */
+html,body{height:auto!important;overflow:auto!important}
+#viewport{position:static!important;overflow:visible!important;inset:auto!important}
+#stage{position:static!important;width:auto!important;height:auto!important;transform:none!important;max-width:860px;margin:0 auto;overflow:visible!important}
+#stage.bg-grid::before{display:none}
+.slide{display:flex!important;position:relative!important;inset:auto!important;padding:24px 16px 28px!important;gap:14px!important;border-bottom:2px solid var(--line)}
+.slide aside.notes{display:none!important}
+.slide *{position:static!important;inset:auto!important;transform:none!important}
+.slide{overflow:hidden!important;min-height:0!important;height:auto!important}
+.slide canvas,.slide video{display:none!important}
+.slide svg,.slide img{max-height:260px!important;width:auto!important;max-width:100%!important}
+.frag,.rise{opacity:1!important;transform:none!important;animation:none!important}
+#hint,#progress,#slideNum,#hud,#sectionLabel,#toolBadge,#ink,#laser,#spot,#pv,#mnav,.overlay,#timerBox,#toast{display:none!important}
+.grid2,.grid3,.grid4,.humour-wrap{grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
+.row{flex-direction:column!important;gap:12px!important}
+.slide [style*="width"]{width:auto!important;max-width:100%!important}
+.slide [style*="height"]{height:auto!important}
+.slide [style*="position:absolute"]{position:static!important}
+h1,h1[style]{font-size:38px!important}h2,h2[style]{font-size:27px!important}h3{font-size:20px!important}
+p,li,.lead,.q,p[style]{font-size:17px!important;max-width:none!important}.small,.small li,.cite{font-size:15px!important}
+.big-number,.count{font-size:44px!important}
+.flip,.flip .inner{min-height:0!important;transform:none!important}.flip .face{position:relative!important;backface-visibility:visible!important;transform:none!important}
+.quiz-item{grid-template-columns:1fr!important}[data-toggle] .when-open{display:revert!important}
+svg{max-width:100%;height:auto}
+.nojs-note{display:block!important;padding:14px 16px;background:var(--bg3);font:15px/1.4 system-ui,sans-serif}
+</style><div class="nojs-note" style="display:none">This preview has scripts switched off, so the slides are shown as a plain list. For the interactive version, open the link in Safari or Chrome.</div></noscript>
+
+<div id="pv" aria-label="Presenter view">
+  <div id="pvBar">
+    <div><span class="lbl">Elapsed</span><span class="big" id="pvElapsed">0:00</span></div>
+    <div><button id="pvClockToggle" type="button">Start</button> <button id="pvClockReset" type="button">Reset</button></div>
+    <div><span class="lbl">Slide</span><span class="big" id="pvSlide">1 / 1</span></div>
+    <div><span class="lbl">Section</span><span id="pvSection" style="font-size:18px"></span></div>
+    <div><span class="lbl">Pace</span><span id="pvPace" style="font-size:18px">not started</span></div>
+    <span class="sp"></span>
+    <div><span class="lbl">Audience screen</span><span id="pvLink" style="font-size:15px">waiting…</span></div>
+    <div><span class="lbl">Time now</span><span class="big" id="pvNow">--:--</span></div>
+  </div>
+  <div id="pvVSplit" class="pvSplit" role="separator" aria-orientation="vertical" aria-label="Resize live slide and next slide" tabindex="0" title="Drag to resize · double-click to reset"></div>
+  <div id="pvNextWrap"><div id="pvNextLbl">Next</div><div id="pvNext"><div id="pvNextStage"></div></div></div>
+  <div id="pvTools">
+    <button type="button" id="pvToolsToggle" title="Hide the tool buttons to make more room (show them again here)">▾ Hide tools</button>
+    <button type="button" data-tool="laser" title="Laser pointer (L)">Laser <kbd>L</kbd></button>
+    <button type="button" data-tool="spot" title="Spotlight (S)">Spotlight <kbd>S</kbd></button>
+    <button type="button" data-tool="pen" title="Pen (P)">Pen <kbd>P</kbd></button>
+    <button type="button" data-tool="hl" title="Highlight words (H)">Highlight <kbd>H</kbd></button>
+    <button type="button" data-tool="zoom" title="Zoom (Z)">Zoom <kbd>Z</kbd></button>
+    <button type="button" data-act="clear" title="Clear ink and highlights on this slide (E)">Clear <kbd>E</kbd></button>
+    <button type="button" data-act="black" title="Black screen (B)">Black <kbd>B</kbd></button>
+    <button type="button" data-act="white" title="White screen (W)">White <kbd>W</kbd></button>
+    <button type="button" data-act="timer" title="Activity timer (T)">Timer <kbd>T</kbd></button>
+    <button type="button" data-act="overview" title="All slides (O)">Slides <kbd>O</kbd></button>
+    <button type="button" data-act="edit" title="Edit slide text and notes, hide or delete slides, save (Shift+E)">Edit <kbd>⇧E</kbd></button>
+    <button type="button" data-act="prevslide" title="Previous slide, skipping reveals (Shift+←)">⏮ Prev slide</button>
+    <button type="button" data-act="prev" title="Previous">◀ Back</button>
+    <button type="button" data-act="next" title="Next">Next ▶</button>
+    <button type="button" data-act="revealall" title="Show everything on this slide (A)">Reveal all <kbd>A</kbd></button>
+    <button type="button" data-act="nextslide" title="Next slide, skipping reveals (Shift+→)">Next slide ⏭</button>
+  </div>
+  <div id="pvHSplit" class="pvSplit" role="separator" aria-orientation="horizontal" aria-label="Resize slides and notes" tabindex="0" title="Drag to resize · double-click to reset"></div>
+  <div id="pvNotesWrap">
+    <div id="pvNotesBar">Speaker notes <span style="flex:1"></span><button type="button" id="pvLayoutReset" title="Put the panels back to their default sizes">Reset layout</button><button type="button" id="pvSmaller">A−</button><button type="button" id="pvBigger">A+</button></div>
+    <div id="pvNotes"></div>
+  </div>
+</div>
+
+<div id="viewport"><div id="stage" class="bg-grid" data-sync-root="stage">
+<div id="sectionLabel"></div><div id="hud"></div><div id="slideNum"></div><div id="toolBadge"></div>
+<!-- ================= SLIDES ================= -->
+<!-- Lecture 3: Chapter 3, Health-risk behaviour (Morrison and Bennett, 4th edn, 2016, pp. 50–85).
+     Lecturer's outline A–L, with obesity moved up and alcohol/drugs moved to the end (Pakistan relevance;
+     alcohol is the first thing to trim if time runs short). Health effects sit with each behaviour.
+     Unprotected sexual behaviour (pp. 72–77) is left out on purpose. Sections reveal one at a time. -->
+
+<!-- ============ OPENING ============ -->
+<section class="slide center" data-section="Opening" data-at="0" data-title="Title">
+  <p class="muted" style="font-size:24px">Health Psychology, Lecture 3 · Chapter 3</p>
+  <h1 style="font-size:96px;margin-top:6px">Living dangerously?</h1>
+  <p class="lead" style="margin-top:14px">Health-risk behaviour: what we do that makes us ill, and why we keep doing it</p>
+  <p class="frag" style="margin-top:34px;font-size:30px;max-width:1150px">"In many ways the world is becoming more dangerous. Too many of us are living dangerously – whether we are aware of that or not."</p>
+  <p class="frag cite" style="margin-top:8px">WHO Director-General, World Health Report (WHO 2002a: 3), quoted on p. 54</p>
+</section>
+
+<section class="slide" data-title="Today">
+  <h2>Today</h2>
+  <div class="grid3" style="margin-top:10px;gap:22px 34px">
+    <div class="panel frag"><h3>1 · What is health behaviour?</h3><p class="small muted" style="margin-top:6px">Definitions, Alameda 7</p></div>
+    <div class="panel frag"><h3>2 · Health risk</h3><p class="small muted" style="margin-top:6px">Risk factors, DALYs</p></div>
+    <div class="panel frag"><h3>3 · Smoking</h3><p class="small muted" style="margin-top:6px">World, Pakistan, harm</p></div>
+    <div class="panel frag"><h3>4 · Obesity</h3><p class="small muted" style="margin-top:6px">Definition, prevalence, causes</p></div>
+    <div class="panel accent frag"><h3>5 · Your turn</h3><p class="small muted" style="margin-top:6px">Is screen use a health risk? Research, then debate</p></div>
+    <div class="panel frag"><h3>6 · Why start? Why continue? How to stop?</h3><p class="small muted" style="margin-top:6px">Initiation, dependence, cessation</p></div>
+    <div class="panel frag"><h3>7 · Unhealthy diet</h3><p class="small muted" style="margin-top:6px">Cancer, fats, salt</p></div>
+    <div class="panel frag"><h3>8 · Alcohol and drugs</h3><p class="small muted" style="margin-top:6px">Trends and harm</p></div>
+  </div>
+  <p class="cite push">Reading: Morrison and Bennett (2016), Chapter 3, pp. 50–85</p>
+</section>
+
+<!-- ============ A. WHAT IS HEALTH BEHAVIOUR ============ -->
+<section class="slide" data-section="What is health behaviour?" data-at="4" data-title="Defining health behaviour">
+  <h2>What is health behaviour?</h2>
+  <p class="cite">Chapter 3 · pp. 52–53</p>
+  <div class="grid2" style="margin-top:10px;gap:22px 44px">
+    <div class="panel frag"><span class="tag" style="align-self:flex-start">Kasl and Cobb, 1966</span><p class="small" style="margin-top:8px">"Any activity undertaken by a person <strong>believing themselves to be healthy</strong> for the purposes of preventing disease or detecting it at an asymptomatic stage."</p></div>
+    <div class="panel frag"><span class="tag" style="align-self:flex-start">Harris and Guten, 1979</span><p class="small" style="margin-top:8px">Behaviour performed <strong>regardless of perceived health status</strong>, to protect, promote or maintain health. So people who are already ill count too.</p></div>
+    <div class="panel c1 frag"><h3>The catch</h3><p class="small" style="margin-top:6px">Both assume the goal is <strong>health</strong>. But people exercise to look good, to meet friends, or for fun.</p></div>
+    <div class="panel accent frag"><h3>The general definition</h3><p class="small" style="margin-top:6px">Health behaviour is <strong>any behaviour associated with a person's health status</strong>, whatever their current health or motives.</p></div>
+  </div>
+  <div class="grid3 frag" style="margin-top:14px;gap:12px">
+    <div class="panel"><p class="small"><strong>Health behaviour</strong> (feel well): a check-up, eating well</p></div>
+    <div class="panel c2"><p class="small"><strong>Illness behaviour</strong> (have symptoms): seeing a doctor about a cough</p></div>
+    <div class="panel c3"><p class="small"><strong>Sick-role behaviour</strong> (diagnosed): taking the medicine, resting</p></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Behavioural pathogens and immunogens" data-sort="1,2">
+  <h2>Matarazzo: behavioural pathogens and immunogens</h2>
+  <p class="cite">Chapter 3 · p. 52</p>
+  <div class="grid2" style="margin-top:10px;grid-template-columns:1fr 1.15fr">
+    <div>
+      <div class="panel c1 frag"><h3>Behavioural pathogen</h3><p class="small" style="margin-top:6px">A behaviour thought to <strong>damage</strong> health, e.g. smoking. The book calls these <strong>health-risk behaviours</strong>.</p></div>
+      <div class="panel c3 frag" style="margin-top:14px"><h3>Behavioural immunogen</h3><p class="small" style="margin-top:6px">A behaviour that <strong>protects</strong> health, e.g. exercise. The book calls these <strong>health-protective behaviours</strong>.</p></div>
+      <p class="cite" style="margin-top:10px">Matarazzo (1984)</p>
+    </div>
+    <div class="frag">
+      <p class="small muted">Quick sort: click once for pathogen (red), twice for immunogen (green).</p>
+      <div class="row" style="flex-wrap:wrap;gap:10px;margin-top:8px">
+        <button class="sort-item" type="button" data-answer="1">Smoking a cigarette after chai</button>
+        <button class="sort-item" type="button" data-answer="2">Walking to university</button>
+        <button class="sort-item" type="button" data-answer="1">Chewing gutka</button>
+        <button class="sort-item" type="button" data-answer="2">Getting your blood pressure checked</button>
+        <button class="sort-item" type="button" data-answer="1">Sleeping 4 hours before exams</button>
+        <button class="sort-item" type="button" data-answer="2">Wearing a helmet on a bike</button>
+        <button class="sort-item" type="button" data-answer="1">Paratha fried in vanaspati every morning</button>
+      </div>
+      <div class="row" style="gap:10px;margin-top:12px"><button class="btn" type="button" data-sort-reveal>Show answers</button><button class="btn" type="button" data-sort-reset>Reset</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="The Alameda 7">
+  <h2>The Alameda 7</h2>
+  <p class="cite">Chapter 3 · p. 53 · Belloc and Breslow (1972)</p>
+  <div class="grid2" style="margin-top:10px;grid-template-columns:1.05fr 1fr">
+    <div>
+      <p class="small frag">6,928 healthy adults in Alameda County, California, followed for over <strong>30 years</strong> (1965–1999). Seven behaviours predicted who stayed healthy and lived longer:</p>
+      <ol class="small" style="margin-top:8px;padding-left:28px;display:flex;flex-direction:column;gap:4px">
+        <li class="frag">Sleeping 7–8 hours a night</li>
+        <li class="frag">Not smoking</li>
+        <li class="frag">No more than 1–2 alcoholic drinks a day</li>
+        <li class="frag">Regular exercise</li>
+        <li class="frag">Not eating between meals</li>
+        <li class="frag">Eating breakfast</li>
+        <li class="frag">No more than 10% overweight</li>
+      </ol>
+    </div>
+    <div>
+      <div class="panel accent frag"><h3>The payoff</h3><p class="small" style="margin-top:6px">People doing 6 or 7 of these lived longer than those doing fewer than 6:</p>
+        <div class="row" style="gap:40px;margin-top:8px"><div><div class="big-number" style="font-size:80px">+7</div><p class="small">years, men</p></div><div><div class="big-number" style="font-size:80px">+11</div><p class="small">years, women</p></div></div></div>
+      <div class="panel frag" style="margin-top:14px"><p class="small"><strong>But:</strong> later re-analyses found snacking and skipping breakfast didn't predict death. The benefits <strong>multiply</strong>: two good habits gave more than twice the benefit of one.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ B. HEALTH RISK ============ -->
+<section class="slide" data-section="Health risk" data-at="18" data-title="Eight risk factors">
+  <h2>Health risk: eight factors behind 61% of cardiovascular deaths</h2>
+  <p class="cite">Chapter 3 · pp. 53–54 · WHO (2009), based on 2004 data</p>
+  <p class="small frag" style="margin-top:2px"><strong>Health risk:</strong> "a factor that raises the probability of adverse health outcomes" (WHO 2009). Many are behavioural; others are environmental, like pollution or poverty.</p>
+  <div class="grid4" style="gap:8px;margin-top:6px">
+    <div class="panel c1 frag"><h3>Alcohol use</h3></div>
+    <div class="panel c1 frag"><h3>Tobacco use</h3></div>
+    <div class="panel c2 frag"><h3>High blood pressure</h3></div>
+    <div class="panel c2 frag"><h3>High BMI</h3></div>
+    <div class="panel c2 frag"><h3>High cholesterol</h3></div>
+    <div class="panel c2 frag"><h3>High blood glucose</h3></div>
+    <div class="panel c1 frag"><h3>Low fruit and vegetables</h3></div>
+    <div class="panel c1 frag"><h3>Physical inactivity</h3></div>
+  </div>
+  <p class="frag push">Together they cause <strong>61%</strong> of cardiovascular deaths and over <strong>three-quarters</strong> of ischaemic heart disease, the world's leading cause of death. <span class="muted">Red: behaviours. Amber: their results in the body.</span></p>
+  <p class="small muted frag" style="margin-top:2px">Poorer families eat less fruit and veg mainly because of <strong>cost and access</strong>, not lack of interest.</p>
+</section>
+
+<section class="slide" data-title="Top risk factors today">
+  <h2>The top risk factors today</h2>
+  <p class="cite">Not in the book · Global Burden of Disease 2021 (Brauer et al., <em>The Lancet</em>, 2024)</p>
+  <div class="grid2" style="margin-top:10px;grid-template-columns:1.2fr 1fr">
+    <div class="frag">
+      <p class="small muted">Share of all healthy life lost worldwide (DALYs), 2021</p>
+      <div class="bars" style="margin-top:10px">
+        <div class="bar-row" style="grid-template-columns:330px 1fr 80px"><span>Particulate air pollution</span><div class="bar-track"><div class="bar-fill" data-w="100" style="background:var(--muted)"></div></div><span class="bar-val">8.0%</span></div>
+        <div class="bar-row" style="grid-template-columns:330px 1fr 80px"><span>High blood pressure</span><div class="bar-track"><div class="bar-fill" data-w="97.5" style="background:var(--cat2)"></div></div><span class="bar-val">7.8%</span></div>
+        <div class="bar-row" style="grid-template-columns:330px 1fr 80px"><span>Smoking</span><div class="bar-track"><div class="bar-fill" data-w="71" style="background:var(--cat1)"></div></div><span class="bar-val">5.7%</span></div>
+        <div class="bar-row" style="grid-template-columns:330px 1fr 80px"><span>Low birthweight, short gestation</span><div class="bar-track"><div class="bar-fill" data-w="70" style="background:var(--muted)"></div></div><span class="bar-val">5.6%</span></div>
+        <div class="bar-row" style="grid-template-columns:330px 1fr 80px"><span>High blood sugar</span><div class="bar-track"><div class="bar-fill" data-w="67.5" style="background:var(--cat2)"></div></div><span class="bar-val">5.4%</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="panel c3 frag"><h3>Falling</h3><p class="small" style="margin-top:6px">Unsafe water (−66%), child growth failure (−72%) since 2000.</p></div>
+      <div class="panel c1 frag" style="margin-top:14px"><h3>Rising</h3><p class="small" style="margin-top:6px">Metabolic risks: high BMI and high blood sugar. Healthy years lost to them are up about <strong>50%</strong> since 2000.</p></div>
+    </div>
+  </div>
+  <p class="frag push"><strong>Why it matters here:</strong> Karachi has both: smog and unsafe water <em>and</em> rising diabetes and obesity.</p>
+</section>
+
+<section class="slide" data-title="Burden of ill health and DALYs">
+  <h2>The burden of ill health: DALYs</h2>
+  <p class="cite">Chapter 3 · p. 55</p>
+  <div class="grid2" style="margin-top:10px">
+    <div>
+      <div class="panel accent frag"><h3>Disability-adjusted life years</h3><p class="small" style="margin-top:6px">Years of healthy life lost: years lost to <strong>early death</strong> plus years lived with <strong>illness or disability</strong>. One number for mortality <em>and</em> morbidity.</p>
+        <p class="lead" style="margin-top:10px">DALY = years of life lost + years lived with disability</p></div>
+      <p class="small frag" style="margin-top:14px">In the EU, tobacco and alcohol cause more lost healthy years than any other behaviour, far more than illicit drugs (Anderson and Baumberg 2006).</p>
+    </div>
+    <div class="frag">
+      <p class="small muted">Quick check: which loses more DALYs?</p>
+      <div class="quiz-item" data-toggle style="margin-top:6px"><span>A: dies of a heart attack at 50 (expected to live to 75)</span><button class="btn" type="button"><span class="when-closed">DALYs?</span><span class="when-open">25</span></button></div>
+      <div class="quiz-item" data-toggle><span>B: lives 40 years with diabetes complications, weighted 0.3</span><button class="btn" type="button"><span class="when-closed">DALYs?</span><span class="when-open">12</span></button></div>
+      <p class="small frag" style="margin-top:10px">Deaths alone would miss person B entirely.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ C. SMOKING ============ -->
+<section class="slide" data-section="Smoking" data-at="30" data-title="Smoking: global trends">
+  <h2>Smoking: global trends</h2>
+  <p class="cite">Chapter 3 · pp. 56–58 · updated with WHO (2025)</p>
+  <div class="grid3" style="margin-top:12px">
+    <div class="frag"><div class="count c1" data-count="1.2" data-dec="1" data-suf=" bn">0</div><p class="small">tobacco users in 2024, down from <strong>1.38 bn</strong> in 2000. Still 1 adult in 5.</p></div>
+    <div class="frag"><div class="count c2" style="white-space:nowrap;font-size:72px">41%→33%</div><p class="small">of men use tobacco (2010 → 2024). Women: 11% → 6.6%.</p></div>
+    <div class="frag"><div class="count c1" data-count="15" data-suf=" m">0</div><p class="small">children aged 13–15 vape. Children are <strong>9×</strong> as likely as adults to vape.</p></div>
+  </div>
+  <div class="panel frag" style="margin-top:18px"><p class="small"><strong>The book's UK story:</strong> about 80% of men and 40% of women smoked in the 1950s; about 20% of adults by 2012. Lung cancer fell in men, but rose in women, decades after women took up smoking. Smoking's harms show up <strong>20–30 years later</strong>.</p></div>
+</section>
+
+<section class="slide" data-title="Smoking in Pakistan">
+  <h2>Smoking in Pakistan</h2>
+  <p class="cite">Not in the book · Global Adult Tobacco Survey, Pakistan 2014 and 2024</p>
+  <div class="grid2" style="margin-top:12px">
+    <div>
+      <div class="frag"><div class="count c1" data-count="22.7" data-dec="1" data-suf=" million">0</div><p class="small">adults use tobacco: <strong>16.1%</strong> of over-15s (2024), down from 19.1% in 2014.</p></div>
+      <div class="frag" style="margin-top:14px"><div class="count c1" data-count="448">0</div><p class="small">Pakistanis die <strong>every day</strong> from tobacco: about 163,600 a year.</p></div>
+    </div>
+    <div>
+      <div class="panel c2 frag"><h3>Not just cigarettes</h3><p class="small" style="margin-top:6px">Naswar, gutka, paan and sheesha. Smokeless tobacco is strongly linked to <strong>mouth cancer</strong>.</p></div>
+      <div class="panel c3 frag" style="margin-top:14px"><h3>Second-hand smoke is falling</h3><p class="small" style="margin-top:6px">Exposure at home 48% → 29%; on public transport 76% → 45%; in restaurants 86% → 55% (2014 → 2024).</p></div>
+    </div>
+  </div>
+  <p class="frag push">Women's smoking rose slightly over the decade (to 5.9%). <strong>Why might that be?</strong></p>
+</section>
+
+<section class="slide" data-title="Age-specific mortality">
+  <h2>Age-specific mortality: it's never too late to stop</h2>
+  <p class="cite">Chapter 3 · pp. 55, 58, 68</p>
+  <p class="small frag" style="margin-top:8px"><strong>Age-specific mortality:</strong> deaths per 100,000 people a year <em>within an age group</em>, e.g. cancer deaths among 45–54s compared with 55–64s.</p>
+  <div class="grid2" style="margin-top:12px;grid-template-columns:1.2fr 1fr">
+    <div class="frag">
+      <p class="small muted">Years of life gained by quitting, British doctors followed for 50 years (Doll et al. 2004)</p>
+      <div class="bars" style="margin-top:10px">
+        <div class="bar-row" style="grid-template-columns:150px 1fr 90px"><span>Quit at 30</span><div class="bar-track"><div class="bar-fill" data-w="100" style="background:var(--cat3)"></div></div><span class="bar-val">~10 yrs</span></div>
+        <div class="bar-row" style="grid-template-columns:150px 1fr 90px"><span>Quit at 40</span><div class="bar-track"><div class="bar-fill" data-w="90" style="background:var(--cat3)"></div></div><span class="bar-val">~9 yrs</span></div>
+        <div class="bar-row" style="grid-template-columns:150px 1fr 90px"><span>Quit at 50</span><div class="bar-track"><div class="bar-fill" data-w="60" style="background:var(--cat3)"></div></div><span class="bar-val">~6 yrs</span></div>
+        <div class="bar-row" style="grid-template-columns:150px 1fr 90px"><span>Quit at 60</span><div class="bar-track"><div class="bar-fill" data-w="30" style="background:var(--cat3)"></div></div><span class="bar-val">~3 yrs</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="panel accent frag"><h3>Key study</h3><p class="small" style="margin-top:6px">The American Cancer Society's Cancer Prevention Study II followed over <strong>1 million</strong> adults for 24+ years. Former smokers had lower age-specific death rates than current smokers, even those who quit at <strong>70–74</strong>.</p></div>
+    </div>
+  </div>
+  <p class="frag push">Smokers who never stop lose about <strong>10 years</strong> of life.</p>
+</section>
+
+<section class="slide" data-title="Negative health effects: smoking">
+  <h2>Negative health effects: smoking</h2>
+  <p class="cite">Chapter 3 · pp. 61–62</p>
+  <div class="grid3" style="margin-top:12px">
+    <div class="panel c1 frag"><h3>Carbon monoxide</h3><p class="small" style="margin-top:6px">Cuts the oxygen the blood carries to the heart muscle.</p></div>
+    <div class="panel c1 frag"><h3>Nicotine</h3><p class="small" style="margin-top:6px">Raises heart rate and blood pressure. With CO, narrows arteries and makes clots more likely.</p></div>
+    <div class="panel c1 frag"><h3>Tar</h3><p class="small" style="margin-top:6px">Clogs the lungs and causes cancer.</p></div>
+  </div>
+  <div class="grid3 frag" style="margin-top:16px">
+    <div><div class="big-number c1" style="font-size:84px">30%</div><p class="small">of coronary heart disease</p></div>
+    <div><div class="big-number c1" style="font-size:84px">70%</div><p class="small">of lung cancer</p></div>
+    <div><div class="big-number c1" style="font-size:84px">80%</div><p class="small">of COPD (e.g. emphysema)</p></div>
+  </div>
+  <p class="frag push"><strong>Passive smoking</strong> causes about 25% of lung cancer deaths in non-smokers. Over 1 billion tobacco deaths are predicted this century (WHO 2008).</p>
+</section>
+
+<!-- ============ D. OBESITY (moved up) ============ -->
+<section class="slide" data-section="Obesity" data-at="50" data-title="Obesity: definition">
+  <h2>Obesity: how is it defined?</h2>
+  <p class="cite">Chapter 3 · p. 81</p>
+  <div class="grid2" style="margin-top:10px">
+    <div>
+      <p class="small frag"><strong>Body mass index</strong> = weight (kg) ÷ height (m)²</p>
+      <table class="small frag" style="margin-top:10px;border-collapse:collapse;width:100%">
+        <tr style="border-bottom:1px solid var(--line)"><th style="text-align:left;padding:6px 0">Category</th><th style="text-align:left">WHO</th><th style="text-align:left">Asian cut-offs</th></tr>
+        <tr><td style="padding:5px 0">Normal</td><td>18.5–24.9</td><td>18.5–22.9</td></tr>
+        <tr><td style="padding:5px 0">Overweight</td><td>25–29.9</td><td>23–27.4</td></tr>
+        <tr><td style="padding:5px 0">Obese</td><td>30+</td><td>27.5+</td></tr>
+      </table>
+      <p class="small muted frag" style="margin-top:8px">South Asians get diabetes and heart disease at a <strong>lower</strong> BMI, so lower cut-offs are often used here.</p>
+    </div>
+    <div>
+      <div class="panel accent frag"><h3>Try it</h3><p class="small" style="margin-top:6px">A man is 1.70 m and 78 kg. BMI = 78 ÷ 1.70² = <strong>27</strong></p>
+        <div class="quiz-item" data-toggle style="margin-top:6px"><span>Is he obese?</span><button class="btn" type="button"><span class="when-closed">Answer</span><span class="when-open">WHO: overweight. Asian cut-off: obese</span></button></div></div>
+      <div class="panel c1 frag" style="margin-top:14px"><h3>Shape matters too</h3><p class="small" style="margin-top:6px">Fat around the waist ("apple shape") predicts heart attack and diabetes better than BMI alone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Obesity: prevalence">
+  <h2>Prevalence of obesity: the world and Pakistan</h2>
+  <p class="cite">Chapter 3 · p. 82 · updated with WHO and recent surveys</p>
+  <div class="grid2" style="margin-top:12px">
+    <div>
+      <div class="frag"><div class="count c2" data-count="2.5" data-dec="1" data-suf=" bn">0</div><p class="small">adults overweight worldwide (43%); <strong>890 million</strong> obese (16%). Adult obesity has more than <strong>doubled</strong> since 1990 (WHO, 2022 data).</p></div>
+      <div class="frag" style="margin-top:12px"><div class="count c2" data-count="160" data-suf=" m">0</div><p class="small">children and teenagers (5–19) obese. Adolescent obesity has <strong>quadrupled</strong>.</p></div>
+    </div>
+    <div>
+      <div class="panel c1 frag"><h3>Pakistan</h3><p class="small" style="margin-top:6px">About <strong>59%</strong> of adults overweight and <strong>24%</strong> obese on WHO cut-offs. Obesity has roughly <strong>tripled</strong> in 20 years.</p></div>
+      <div class="panel c1 frag" style="margin-top:14px"><p class="small">On <strong>Asian</strong> cut-offs, a 2018 survey of 19,000+ Pakistanis found about <strong>half</strong> obese.</p></div>
+    </div>
+  </div>
+  <p class="frag push"><strong>Why it matters:</strong> Pakistan has one of the highest diabetes rates in the world. Obesity is no longer a "rich country" problem.</p>
+</section>
+
+<section class="slide" data-title="Obesity: negative consequences">
+  <h2>Negative health consequences of obesity</h2>
+  <p class="cite">Chapter 3 · p. 82</p>
+  <div class="grid2" style="margin-top:12px">
+    <div>
+      <ul class="clean small">
+        <li class="frag"><strong>Body:</strong> high blood pressure, heart disease, type 2 diabetes, osteoarthritis, breathing problems, back pain, some cancers</li>
+        <li class="frag"><strong>Mind:</strong> low self-esteem and social isolation, often from <strong>stigma</strong>. Overweight children have poorer quality of life</li>
+        <li class="frag">High BMI caused an estimated <strong>3.7 million</strong> deaths in 2021 (WHO)</li>
+      </ul>
+    </div>
+    <div class="panel accent frag">
+      <h3>Key study</h3>
+      <p class="small" style="margin-top:6px"><strong>Flegal et al. (2013):</strong> 97 studies, <strong>2.88 million</strong> people. Compared with "normal" weight:</p>
+      <ul class="clean small" style="margin-top:6px">
+        <li>Obese grades 2–3: <strong>29% higher</strong> risk of death</li>
+        <li>Grade 1 obese: no difference</li>
+        <li>Overweight: slightly <strong>lower</strong> risk (6%)</li>
+      </ul>
+      <p class="small muted" style="margin-top:6px">A J-shaped curve: underweight is risky too.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Obesity: causes">
+  <h2>What causes obesity?</h2>
+  <p class="cite">Chapter 3 · pp. 83–84</p>
+  <div class="grid3" style="margin-top:12px;gap:18px 30px">
+    <div class="panel frag"><h3>Energy in &gt; energy out</h3><p class="small" style="margin-top:6px">The simple version (Pinel 2003). True, but not the whole story.</p></div>
+    <div class="panel c2 frag"><h3>Genes</h3><p class="small" style="margin-top:6px">Adopted children's weight tracks their <strong>biological</strong> mothers. More fat cells? Little evidence. Slower metabolism? <strong>Not supported.</strong> Appetite hormones (leptin), FTO gene: partly.</p></div>
+    <div class="panel c3 frag"><h3>Activity can cancel genes</h3><p class="small" style="margin-top:6px">Vigorous activity may cancel out genetic risk from the FTO gene (Rampersaud et al. 2008).</p></div>
+    <div class="panel c1 frag"><h3>Sedentary life</h3><p class="small" style="margin-top:6px">Indoors, screens, cars. TV and computing may even lower metabolic rate.</p></div>
+    <div class="panel c4 frag"><h3>Eating styles</h3><p class="small" style="margin-top:6px"><strong>External</strong> (sight and smell of food), <strong>internal</strong> (hunger), <strong>emotional</strong> (bored, stressed). Stress shifts us to sweet, fatty food.</p></div>
+    <div class="panel accent frag"><h3>An "obesogenic" environment</h3><p class="small" style="margin-top:6px">Surroundings that push overeating and inactivity. In Karachi: cheap fried street food and delivery apps; sugary drinks everywhere; heat, traffic and few parks or footpaths, so we drive.</p></div>
+  </div>
+</section>
+
+<!-- ============ F. ASSIGNMENT + BREAK ============ -->
+<section class="slide" data-section="Your turn: screen use" data-at="68" data-title="Assignment: is excessive screen use a health risk?" data-countdown="2400">
+  <h2>Your turn: is excessive screen use a health risk?</h2>
+  <div class="grid2" style="margin-top:8px;grid-template-columns:1.25fr 1fr">
+    <div>
+      <ol class="small" style="padding-left:28px;display:flex;flex-direction:column;gap:8px">
+        <li class="frag">Use today's ideas: is screen use a <strong>behavioural pathogen</strong>? What would count as "excessive"?</li>
+        <li class="frag">Find <strong>three pieces of evidence</strong>: a study, a review or official guidance. Note who, when, how many people, what they found.</li>
+        <li class="frag">Take a <strong>stance</strong>: health risk, not a health risk, or "it depends". Be ready to defend it.</li>
+        <li class="frag">Fill in your <strong>printed worksheet</strong> and hand it in after the discussion.</li>
+      </ol>
+      <p class="small muted frag" style="margin-top:12px">Think about sleep, posture and eyes, activity and weight, mood and anxiety, attention. Use Google Scholar or the WHO website, not just news stories.</p>
+    </div>
+    <div class="panel accent" style="text-align:center">
+      <p class="small muted">Research and break</p>
+      <div data-cd-display>40:00</div>
+      <div style="margin-top:10px"><button class="btn" type="button" data-cd-start>Start timer</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ G. DISCUSSION ============ -->
+<section class="slide" data-section="Discussion" data-at="108" data-title="Discussion: for and against">
+  <h2>Is excessive screen use a health risk?</h2>
+  <div class="grid2" style="margin-top:8px;gap:20px 30px">
+    <div><h3 class="c1">Yes, it's a risk</h3><div class="board" data-board="screen-for" data-placeholder="Type the class's evidence here…" style="min-height:430px;margin-top:8px"></div></div>
+    <div><h3 class="c3">No, or it depends</h3><div class="board" data-board="screen-against" data-placeholder="Type the class's evidence here…" style="min-height:430px;margin-top:8px"></div></div>
+  </div>
+</section>
+
+<!-- ============ H. WHY START ============ -->
+<section class="slide" data-section="Why do people start?" data-at="128" data-title="Why do people start? Class ideas">
+  <h2>Why do young people start smoking, vaping or using naswar?</h2>
+  <p class="small muted">Call out reasons. No wrong answers.</p>
+  <div class="board" data-board="why-start" data-placeholder="Type the class's reasons here as they come in…" style="min-height:440px;margin-top:12px;font-size:30px"></div>
+</section>
+
+<section class="slide" data-title="Why start? Reasons 1">
+  <h2>Why do people initiate addictive substance use? (1)</h2>
+  <p class="cite">Chapter 3 · pp. 64–65</p>
+  <div class="grid2" style="margin-top:10px;gap:16px 34px">
+    <div class="panel frag"><h3>Genetics</h3><p class="small" style="margin-top:6px">Some evidence involving dopamine reception, but genes don't act alone (Munafò and Johnstone 2008).</p></div>
+    <div class="panel frag"><h3>Curiosity</h3><p class="small" style="margin-top:6px">"What does it feel like?" The most common reason for a first cigarette, drink or joint (Morrison and Plant 1991).</p></div>
+    <div class="panel c2 frag"><h3>Modelling and social learning</h3><p class="small" style="margin-top:6px">Parents, older siblings and friends who smoke make a child more "prepared" to start. Siblings may matter even more than peers (Mercken et al. 2007).</p></div>
+    <div class="panel c2 frag"><h3>Social pressure?</h3><p class="small" style="margin-top:6px">15–16-year-olds <strong>rejected</strong> the idea of peer pressure: they said they chose to smoke (Denscombe 2001).</p></div>
+    <div class="panel c1 frag" style="grid-column:1 / -1"><h3>Image and reputation</h3><p class="small" style="margin-top:6px">Fitting in and status. Boys gained status through fitness; for girls, smoking could signal being cool, sophisticated or rebellious (Michell and Amos 1997). Low family cohesion strengthens peers' pull.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Why start? Reasons 2">
+  <h2>Why do people initiate addictive substance use? (2)</h2>
+  <p class="cite">Chapter 3 · pp. 65–66</p>
+  <div class="grid2" style="margin-top:10px;gap:16px 34px">
+    <div class="panel frag"><h3>Self-concept and self-esteem</h3><p class="small" style="margin-top:6px">Girls who smoked had less self-confidence, felt less liked by their families and had lower physical and social self-concepts (Snow and Bruce 2003).</p></div>
+    <div class="panel frag"><h3>Weight control</h3><p class="small" style="margin-top:6px">A reason to start and keep smoking, more often among girls (French et al. 1994), though boys do it too.</p></div>
+    <div class="panel c2 frag"><h3>Risk-taking propensity</h3><p class="small" style="margin-top:6px">Early smoking, drinking and cannabis cluster with truancy and petty theft. Sensation-seeking <strong>rises</strong> through adolescence (Collado et al. 2014).</p></div>
+    <div class="panel c2 frag"><h3>Health cognitions</h3><p class="small" style="margin-top:6px">Expecting stress relief; unrealistic optimism: "I won't smoke as much as others, so it won't affect me".</p></div>
+    <div class="panel c1 frag" style="grid-column:1 / -1"><h3>Stress: key study</h3><p class="small" style="margin-top:6px"><strong>Byrne and Mazanov (2003)</strong> followed 2,600 Australian teenagers. Non-smokers who experienced stress over the next year were more likely to start. For girls, school stress, family conflict, parental control and feeling school was irrelevant all predicted starting.</p></div>
+  </div>
+</section>
+
+<!-- ============ I. CONTINUING ============ -->
+<section class="slide" data-section="Continuing and stopping" data-at="142" data-title="Continuing unhealthy behaviour" data-stepper>
+  <h2>Continuing unhealthy behaviour and developing dependency</h2>
+  <p class="cite">Chapter 3 · pp. 66–68</p>
+  <div class="grid2" style="margin-top:10px;grid-template-columns:1fr 1.1fr">
+    <div>
+      <p class="small frag">The reasons people <strong>continue</strong> are not the same as the reasons they started. Only about <strong>1 in 10</strong> heavy drinkers becomes dependent, so dependence can't explain all the harm.</p>
+      <ul class="clean small" style="margin-top:10px">
+        <li class="frag"><strong>Genes and family history:</strong> children of problem drinkers are at higher risk</li>
+        <li class="frag"><strong>Personality and mood:</strong> anxiety, sensation-seeking, mood disorders</li>
+        <li class="frag"><strong>Psychological reasons:</strong> pleasure, habit, coping with stress, not believing you can stop (low self-efficacy)</li>
+      </ul>
+    </div>
+    <div class="panel accent">
+      <h3>The nicotine trap</h3>
+      <div class="row" style="gap:10px;margin-top:8px"><button class="btn" type="button" data-step="next">Next step</button><button class="btn" type="button" data-step="all">Show all</button></div>
+      <ol class="small" style="margin-top:10px;padding-left:26px;display:flex;flex-direction:column;gap:6px">
+        <li data-step-item>Nicotine triggers dopamine in the brain's reward pathways</li>
+        <li data-step-item><strong>Tolerance:</strong> more is needed for the same effect</li>
+        <li data-step-item>Levels drop → <strong>withdrawal:</strong> cravings, irritability, anxiety, sleeplessness</li>
+        <li data-step-item>Smoking again removes the withdrawal: that relief is the reward</li>
+        <li data-step-item>A vicious cycle</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ J. CESSATION ============ -->
+<section class="slide" data-title="Behaviour cessation and treating dependence">
+  <h2>Behaviour cessation and thoughts about treating dependence</h2>
+  <p class="cite">Chapter 3 · pp. 68–72</p>
+  <div class="grid2" style="margin-top:10px;grid-template-columns:1fr 1.15fr">
+    <div>
+      <div class="panel c3 frag"><h3>Who stops?</h3><p class="small" style="margin-top:6px">Most smokers want to stop. Those with higher status and education quit more (Droomers et al. 2002). Not being in a <strong>smoking network</strong> helps more than health beliefs do (Rose et al. 1996). Fear of weight gain holds some back.</p></div>
+    </div>
+    <div>
+      <p class="small muted frag">How we've seen dependence over time:</p>
+      <ul class="clean small" style="margin-top:6px">
+        <li class="frag"><strong>17th–18th c. · Moral weakness</strong> → punishment</li>
+        <li class="frag"><strong>19th c. · Victim of an evil substance</strong> → prohibition (USA)</li>
+        <li class="frag"><strong>1935–1960 · A disease of the person</strong> (Jellinek 1960) → lifelong abstinence (Alcoholics Anonymous)</li>
+        <li class="frag"><strong>Behaviourism · Learned behaviour</strong> → unlearn it; controlled drinking, methadone</li>
+      </ul>
+    </div>
+  </div>
+  <p class="frag push"><strong>Two targets:</strong> <em>primary prevention</em> (stop people starting) and <em>secondary prevention</em> (help users change). Should we spend more on tobacco and alcohol than on illegal drugs?</p>
+</section>
+
+<!-- ============ K. UNHEALTHY DIET ============ -->
+<section class="slide" data-section="Unhealthy diet" data-at="152" data-title="Cancer and food">
+  <h2>Unhealthy diet: cancer and food</h2>
+  <p class="cite">Chapter 3 · p. 78 · updated with IARC (2015) and recent rulings</p>
+  <div class="grid2" style="margin-top:10px">
+    <div>
+      <div class="frag"><div class="count c1" data-count="35" data-suf="%">0</div><p class="small">of cancer deaths are partly due to <strong>poor diet</strong>: high fat, high salt, low fibre. Smoking: about 30% (American Cancer Society 2012).</p></div>
+      <div class="panel frag" style="margin-top:12px"><h3>Processed meat</h3><p class="small" style="margin-top:6px">IARC (WHO) 2015: processed meat <strong>causes</strong> bowel cancer; red meat probably does. 50 g a day raises risk by <strong>18%</strong>: relative risk, about 1–2 extra cases per 100 people.</p></div>
+    </div>
+    <div class="panel c1 frag">
+      <h3>The food colours controversy</h3>
+      <ul class="clean small" style="margin-top:6px">
+        <li><strong>2007:</strong> the Southampton study: mixes of six artificial colours increased hyperactivity in 3- and 8–9-year-olds (McCann et al.)</li>
+        <li><strong>2010:</strong> the EU requires a warning: "may have an adverse effect on activity and attention in children"</li>
+        <li><strong>2025:</strong> the US bans <strong>Red No. 3</strong>, which caused thyroid cancer in rats</li>
+      </ul>
+      <p class="small" style="margin-top:8px"><strong>Here:</strong> bright mithai, sherbets, jelly sweets, street chutneys. Who checks the colours?</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Fat intake and cholesterol" data-sort="1,2">
+  <h2>Fat intake and cholesterol</h2>
+  <p class="cite">Chapter 3 · pp. 78–79</p>
+  <div class="grid2" style="margin-top:10px;grid-template-columns:1fr 1.1fr">
+    <div>
+      <div class="panel c1 frag"><h3>LDL: "bad" cholesterol</h3><p class="small" style="margin-top:6px">Lays down fatty <strong>plaques</strong> in the arteries (atherosclerosis). Raised by saturated and trans fats.</p></div>
+      <div class="panel c3 frag" style="margin-top:12px"><h3>HDL: "good" cholesterol</h3><p class="small" style="margin-top:6px">Helps the liver <strong>clear LDL</strong>. Raised by oily fish (omega-3) and exercise.</p></div>
+      <p class="small frag" style="margin-top:10px">Aim: total cholesterol to HDL ratio below <strong>4.5 : 1</strong>. Cutting blood cholesterol by 10% cut heart disease by <strong>54%</strong> at age 40 (Law et al. 1994).</p>
+    </div>
+    <div class="frag">
+      <p class="small muted">Sort the Pakistani plate: once = pushes LDL up (red), twice = better choice (green)</p>
+      <div class="row" style="flex-wrap:wrap;gap:10px;margin-top:8px">
+        <button class="sort-item" type="button" data-answer="1">Paratha in vanaspati ghee</button>
+        <button class="sort-item" type="button" data-answer="1">Halwa puri</button>
+        <button class="sort-item" type="button" data-answer="1">Nihari with the fat on top</button>
+        <button class="sort-item" type="button" data-answer="1">Samosas from reused oil</button>
+        <button class="sort-item" type="button" data-answer="2">Grilled fish</button>
+        <button class="sort-item" type="button" data-answer="2">Daal with a little oil</button>
+        <button class="sort-item" type="button" data-answer="2">A handful of almonds or walnuts</button>
+        <button class="sort-item" type="button" data-answer="1">Butter chicken with cream</button>
+      </div>
+      <div class="row" style="gap:10px;margin-top:12px"><button class="btn" type="button" data-sort-reveal>Show answers</button><button class="btn" type="button" data-sort-reset>Reset</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Newer understanding of fat">
+  <h2>Newer understanding of fat</h2>
+  <p class="cite">Chapter 3 · p. 80 (Issues box) · updated</p>
+  <div class="grid2" style="margin-top:10px">
+    <div>
+      <div class="panel frag"><h3>Saturated fat: not the main villain?</h3><p class="small" style="margin-top:6px">A meta-analysis of 72 studies didn't clearly link saturated fat to heart disease, but <strong>trans fats</strong> were clearly harmful (Chowdhury et al. 2014).</p></div>
+      <div class="panel frag" style="margin-top:12px"><h3>Swapping fat for sugar doesn't help</h3><p class="small" style="margin-top:6px">In 135,000 people in 18 countries, including Pakistan, <strong>high-carbohydrate</strong> diets were linked to higher death rates (PURE study, Dehghan et al. 2017). Its conclusions are debated.</p></div>
+    </div>
+    <div>
+      <div class="panel c1 frag"><h3>Ultra-processed food</h3><p class="small" style="margin-top:6px">A 2024 review linked ultra-processed food to <strong>32</strong> health outcomes, including heart disease, type 2 diabetes and depression (Lane et al., <em>BMJ</em>).</p></div>
+      <div class="panel c3 frag" style="margin-top:12px"><h3>Pakistan, April 2025</h3><p class="small" style="margin-top:6px">Industrial trans fats are now limited to <strong>under 2%</strong> of total fat in <strong>all</strong> foods. Enforcement is the next challenge.</p></div>
+    </div>
+  </div>
+  <p class="frag push">Today's message: cut <strong>trans fats</strong> and ultra-processed food; eat a balanced, Mediterranean-style diet.</p>
+</section>
+
+<section class="slide" data-title="Salt">
+  <h2>Salt</h2>
+  <p class="cite">Chapter 3 · pp. 79–81 · updated with WHO</p>
+  <div class="grid3" style="margin-top:12px">
+    <div class="frag"><div class="count c1" data-count="11" data-suf=" g">0</div><p class="small">average salt eaten per adult per day worldwide (2021)</p></div>
+    <div class="frag"><div class="count c3" data-count="5" data-suf=" g">0</div><p class="small">WHO limit: under 5 g, just under a teaspoon</p></div>
+    <div class="frag"><div class="count c1" data-count="1.7" data-dec="1" data-suf=" m">0</div><p class="small">deaths a year linked to too much salt (2023)</p></div>
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="panel frag"><h3>The book's caution</h3><p class="small" style="margin-top:6px">Cutting salt lowers blood pressure, but a review of trials found no fewer heart-disease deaths over 7 months to 7 years (Hooper et al. 2002).</p></div>
+    <div class="panel c1 frag"><h3>Where's the salt here?</h3><p class="small" style="margin-top:6px">Achaar, chutneys, chaat masala, namkeen and chips, instant noodles, salted lassi, and the salt added <strong>before tasting</strong>.</p></div>
+  </div>
+</section>
+
+<!-- ============ L. ALCOHOL AND DRUGS (moved last) ============ -->
+<section class="slide" data-section="Alcohol and drugs" data-at="166" data-title="Alcohol and drugs: global trends">
+  <h2>Alcohol and drug use: global trends</h2>
+  <p class="cite">Chapter 3 · pp. 59–61 · updated with WHO (2024), Gallup (2025)</p>
+  <div class="grid3" style="margin-top:12px">
+    <div class="frag"><div class="count c1" data-count="2.6" data-dec="1" data-suf=" m">0</div><p class="small">deaths a year from alcohol (4.7% of all deaths); 0.6 m from drugs (WHO 2024, 2019 data)</p></div>
+    <div class="frag"><div class="count c2" style="white-space:nowrap;font-size:72px">5.7→5.5 L</div><p class="small">pure alcohol per person a year worldwide, 2010 → 2019: a slow decline</p></div>
+    <div class="frag"><div class="count c3" data-count="54" data-suf="%">0</div><p class="small">of US adults drink: the lowest in nearly 90 years (Gallup 2025)</p></div>
+  </div>
+  <div class="panel frag" style="margin-top:16px"><p class="small"><strong>After COVID:</strong> US drinking rose during the pandemic, then fell from 2022, but is still above 2019 levels. The fall is led by the <strong>young</strong>: only 50% of 18–34s now drink, and most Americans now think moderate drinking is unhealthy.</p></div>
+</section>
+
+<section class="slide" data-title="Alcohol and drugs in Pakistan">
+  <h2>Alcohol and drug use in Pakistan</h2>
+  <p class="cite">Not in the book · WHO country profile (2016) · UNODC Drug Use in Pakistan (2013)</p>
+  <div class="grid2" style="margin-top:12px">
+    <div>
+      <div class="panel frag"><h3>Alcohol</h3><p class="small" style="margin-top:6px"><strong>96.5%</strong> have never drunk alcohol. Average 0.3 L a year, almost all <strong>unrecorded</strong> (illicit or home-made), so the data are weak. Toxic home-made liquor kills people in mass poisonings.</p></div>
+    </div>
+    <div>
+      <div class="frag"><div class="count c1" data-count="6.7" data-dec="1" data-suf=" million">0</div><p class="small">people used drugs in the past year (6% of 15–64s, 2013): cannabis (charas, bhang) 4 million; heroin 860,000; opium 320,000.</p></div>
+      <p class="small frag" style="margin-top:10px">About 13% of users were women. A new national survey (2022–24) has been under way; its results weren't confirmed when this was written.</p>
+    </div>
+  </div>
+  <p class="frag push"><strong>Why so few data?</strong> When a behaviour is illegal or shameful, people don't report it, and it's hard to help them.</p>
+</section>
+
+<section class="slide" data-title="Negative health effects: alcohol and drugs">
+  <h2>Negative health effects: alcohol and drugs</h2>
+  <p class="cite">Chapter 3 · pp. 61–64</p>
+  <div class="grid2" style="margin-top:10px">
+    <div>
+      <ul class="clean small">
+        <li class="frag"><strong>Alcohol is a depressant</strong>, not a stimulant. Heavy intoxication makes accidents <strong>25×</strong> more likely; very high doses can stop breathing</li>
+        <li class="frag">The more you drink over time, the more <strong>cirrhosis</strong>, liver and oesophageal cancer, stroke and epilepsy</li>
+        <li class="frag">1 in 4 deaths of young men aged 15–29 in the EU are due to alcohol</li>
+        <li class="frag"><strong>Is moderate drinking protective?</strong> The "J-curve" may be an artefact: non-drinkers include people who quit because they were already ill</li>
+      </ul>
+    </div>
+    <div>
+      <div class="panel c1 frag"><h3>Drugs</h3><p class="small" style="margin-top:6px">How a drug is taken matters as much as what it is. About <strong>12.7 million</strong> people inject drugs: 13% have HIV and more than half have hepatitis C.</p></div>
+      <div class="panel frag" style="margin-top:12px"><p class="small">The book's point: illegal drugs cause far less overall harm than <strong>tobacco and alcohol</strong>, yet attract far more fear.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WRAP-UP ============ -->
+<section class="slide" data-section="Wrap-up" data-at="176" data-title="Summary and exit ticket">
+  <h2>Five things to take away</h2>
+  <div class="grid2" style="gap:14px 60px;margin-top:4px">
+    <ul class="clean small">
+      <li class="frag"><strong>Health behaviour</strong> is anything linked to health status, whatever the motive: pathogens and immunogens</li>
+      <li class="frag">A handful of <strong>risk factors</strong> drives most cardiovascular death; DALYs count illness as well as death</li>
+      <li class="frag"><strong>Smoking</strong> is falling but still kills 448 Pakistanis a day; quitting at any age helps</li>
+      <li class="frag"><strong>Obesity</strong> is rising fastest in countries like Pakistan; genes, environment and eating style all play a part</li>
+      <li class="frag">People <strong>start</strong> for social and emotional reasons and <strong>continue</strong> for different ones, including dependence</li>
+    </ul>
+    <div class="panel accent frag">
+      <h3>Exit ticket</h3>
+      <ol class="small" style="padding-left:24px;margin-top:8px;display:flex;flex-direction:column;gap:8px">
+        <li>One health-risk behaviour you see every day in Karachi, and one reason people keep doing it.</li>
+        <li>Has your view on screen use changed today?</li>
+      </ol>
+      <p class="lead accent" style="margin-top:16px">Next: Chapter 4, health-protective behaviour</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============== END SLIDES =============== -->
+</div></div>
+
+<div id="timerBox" role="dialog" aria-label="Activity timer" data-sync-root="timer">
+  <div class="t" data-timer-display>3:00</div>
+  <div class="row"><button class="btn" type="button" data-timer-set="1">1 min</button><button class="btn" type="button" data-timer-set="3">3 min</button><button class="btn" type="button" data-timer-set="5">5 min</button><button class="btn" type="button" data-timer-go>Start</button><button class="btn" type="button" data-timer-close>Close</button></div>
+</div>
+<div class="overlay" id="overview"><h4 style="margin-top:0">All slides <span class="muted" style="font-size:16px;font-family:var(--body)">Press O or Esc to close</span></h4><div id="ovBody"></div></div>
+<div class="overlay" id="blank"></div>
+<div class="overlay" id="whiteout"></div>
+<div class="overlay" id="help"></div>
+<div id="toast" role="status"></div>
+<div id="hint">Press ? for controls · V for presenter view</div>
+
+<script type="application/json" id="deck-shell">null</script>
+<script>window.DECK_CONFIG={"id": "hp-lecture-3-student", "progress": "ecg", "totalMinutes": 180, "locale": "en-GB", "student": true};window.DECK_IMAGES={};</script>
+<script id="deck-engine-js">
+/* ==========================================================================
+   lecture-deck engine
+   - 1600x900 scaled stage, fragments, sections, progress motif, overview
+   - Presenter view (#presenter) synced with the audience window through
+     window.postMessage (popup opened with V) and BroadcastChannel (any other
+     window/tab of the same page)
+   - Tools: laser, spotlight, pen, word highlighter, zoom, black/white screen,
+     activity timer, pace clock
+   - Declarative widgets (data-toggle, data-tabs, data-stepper, data-sort,
+     data-count, bars, data-countdown) that sync automatically
+   Public API: window.DECK (see references/components.md, "Custom widgets")
+   ========================================================================== */
+(function(){
+'use strict';
+const CFG=Object.assign({id:document.title||'deck',progress:'line',totalMinutes:null},window.DECK_CONFIG||{});
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+const W=1600,H=900;
+const STUDENT=!!CFG.student;
+const IS_TOUCH=(()=>{try{return navigator.maxTouchPoints>0||'ontouchstart' in window||matchMedia('(pointer:coarse)').matches}catch(e){return false}})();
+const TOUCH_PHONE=(()=>{try{const ua=navigator.userAgent||'';return /iPhone|iPod|Android.+Mobile|Mobile Safari/i.test(ua)||(IS_TOUCH&&Math.min(screen.width,screen.height)<700)}catch(e){return false}})();
+const PRESENTER=!STUDENT&&/presenter/i.test(location.hash);
+const VIEW=((location.search.match(/[?&]view=(\w+)/)||[])[1]||'').toLowerCase();
+let READER=false,mnav=null;
+const stage=$('#stage'), viewport=$('#viewport');
+const slides=[...stage.children].filter(e=>e.classList.contains('slide'));
+const n=slides.length;
+/* ---------- slide sources (for editing) ----------
+   PRISTINE: each slide as shipped in this file. SRC: current source after
+   edits. DEL: slides marked for deletion (removed when saved). Edits are
+   autosaved in this browser and re-applied on load while the file is unchanged. */
+const PRISTINE=slides.map(s=>s.outerHTML), SRC=PRISTINE.slice(), DEL=new Set();
+function hashStr(s){let h=5381;for(let i=0;i<s.length;i++)h=((h*33)^s.charCodeAt(i))>>>0;return h.toString(36)+s.length.toString(36)}
+const PHASH=hashStr(PRISTINE.join('\n')), EKEY='deck-edits:'+CFG.id;
+function parseSlide(h){const t=document.createElement('template');t.innerHTML=String(h).trim();const e=t.content.firstElementChild;return e&&e.classList.contains('slide')?e:null}
+let RESTORED=0,EDIT=false,edCur=-1;
+if(!STUDENT){let o=null;try{o=JSON.parse(store.get(EKEY)||'null')}catch(e){}
+  if(o&&o.h===PHASH){Object.keys(o.e||{}).forEach(k=>{const i=+k,h=o.e[k];if(i>=0&&i<n&&typeof h==='string'){const nw=parseSlide(h);if(nw){slides[i].replaceWith(nw);slides[i]=nw;SRC[i]=h;RESTORED++}}});
+    (o.d||[]).forEach(i=>{if(i>=0&&i<n){DEL.add(i);RESTORED++}})}}
+const skipped=i=>DEL.has(i)||slides[i].hasAttribute('data-hidden');
+let vis=[];function refreshVis(){vis=slides.map((s,i)=>i).filter(i=>!skipped(i));if(!vis.length)vis=[0]}
+refreshVis();
+const posOf=i=>{let k=0;while(k<vis.length-1&&vis[k]<i)k++;return k};
+const nextVis=i=>{for(let j=i+1;j<n;j++)if(!skipped(j))return j;return -1};
+const prevVis=i=>{for(let j=i-1;j>=0;j--)if(!skipped(j))return j;return -1};
+const numText=i=>skipped(i)?(DEL.has(i)?'deleted slide':'hidden slide'):(posOf(i)+1)+' / '+vis.length;
+const reduce=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const hooks={enter:[],render:[]};
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const fmt=m=>{m=Math.max(0,m);return Math.floor(m/60)+':'+String(Math.floor(m%60)).padStart(2,'0')};
+
+/* ---------- images ---------- */
+const IMG=window.DECK_IMAGES||{};
+function loadImages(root){$$('img[data-img]',root||document).forEach(i=>{const u=IMG[i.dataset.img];if(u&&i.getAttribute('src')!==u){i.src=u;i.decoding='async'}})}
+loadImages();
+
+/* ---------- theme ---------- */
+const themeKey='deck-theme:'+CFG.id;
+const savedTheme=store.get(themeKey);if(savedTheme)document.documentElement.dataset.theme=savedTheme;
+function isDark(){const bg=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();const c=document.createElement('canvas').getContext('2d');c.fillStyle=bg;const h=c.fillStyle;if(!/^#/.test(h))return true;const v=parseInt(h.slice(1),16);return((v>>16&255)*.299+(v>>8&255)*.587+(v&255)*.114)<128}
+function setTheme(t,broadcast){document.documentElement.dataset.theme=t;store.set(themeKey,t);if(broadcast)send({t:'theme',v:t});redrawInk()}
+
+/* ---------- meta ---------- */
+const meta=[];
+function buildMeta(){let secName='',secAt=null;meta.length=0;
+  slides.forEach((s,i)=>{if(s.dataset.section!==undefined){secName=s.dataset.section;secAt=s.dataset.at!==undefined?+s.dataset.at:null}
+    const h=s.querySelector('h1,h2');meta.push({sec:secName,at:secAt,title:s.dataset.title||(h?h.textContent.replace(/\s+/g,' ').trim().slice(0,70):'Slide '+(i+1))})})}
+buildMeta();
+function sectionWindow(i){const m=meta[i];const nx=meta.slice(i).find(x=>x.sec!==m.sec);return[m.at,nx&&nx.at!=null?nx.at:(CFG.totalMinutes!=null?CFG.totalMinutes:null)]}
+
+/* ---------- engine-owned stage elements ---------- */
+const prog=document.createElement('div');prog.id='progress';prog.title='Click to jump';
+const ink=document.createElement('canvas');ink.id='ink';ink.width=W*2;ink.height=H*2;
+const laser=document.createElement('div');laser.id='laser';
+const spot=document.createElement('div');spot.id='spot';
+stage.append(prog,ink,spot,laser);
+const ictx=ink.getContext('2d');ictx.scale(2,2);ictx.lineCap='round';ictx.lineJoin='round';
+
+/* ---------- progress motif ---------- */
+/* positions are over the slides that will be shown (hidden/deleted skipped) */
+const x0=104, base=46;let pstep=0,secStarts=[];const X=k=>x0+k*pstep;
+let progressPath=null;
+function layoutProgress(){const m=vis.length;pstep=m>1?(W-208)/(m-1):0;
+  secStarts=vis.map((i,k)=>(k===0||meta[i].sec!==meta[vis[k-1]].sec)?k:-1).filter(k=>k>=0)}
+layoutProgress();
+function defaultPath(){
+  const style=CFG.progress||'line';let d=`M0 ${base} H${x0-6}`;
+  vis.forEach((s,i)=>{const x=X(i),sec=secStarts.includes(i)&&i>0;
+    if(style==='ecg'){d+=sec?` H${x-8} l3 5 l5 -38 l5 52 l4 -19 H${x+6}`:` H${x-5} l5 -7 l5 7`}
+    else if(style==='wave'){d+=` H${x-6} q6 ${sec?-26:-10} 12 0`}
+    else if(style==='steps'){d+=sec?` H${x} V${base-14} V${base}`:''}
+    else{d+=sec?` H${x-4} v-14 m8 0 v14`:''}});
+  return d+` H${W}`}
+function buildProgress(){if(CFG.progress==='none')return;const d=(progressPath||defaultPath)({X,n:vis.length,secStarts,base,W});
+  prog.innerHTML=`<svg viewBox="0 0 ${W} 80" preserveAspectRatio="none" aria-hidden="true"><defs><clipPath id="progClip"><rect id="progRect" x="0" y="0" width="0" height="80"/></clipPath></defs><path id="progBase" d="${d}"/><path id="progDone" d="${d}" clip-path="url(#progClip)"/><circle id="progDot" cx="${x0}" cy="${base}" r="6"/></svg>`}
+if(CFG.progress!=='none')buildProgress();else prog.style.display='none';
+prog.addEventListener('click',e=>{const r=prog.getBoundingClientRect();const x=(e.clientX-r.left)/r.width*W;go(vis[clamp(Math.round((x-x0)/(pstep||1)),0,vis.length-1)],false)});
+/* after slides are edited, hidden, deleted or restored */
+function relayout(){buildMeta();refreshVis();layoutProgress();buildProgress()}
+
+/* ---------- sync (postMessage + BroadcastChannel) ---------- */
+const ME=Math.random().toString(36).slice(2,10);let seq=0;const seen=new Set();
+const DID='deck:'+CFG.id;let peers=[];if(window.opener)peers.push(window.opener);
+let bc=null;try{bc=new BroadcastChannel(DID)}catch(e){}
+let linked=false;
+function send(m){if(STUDENT)return;m.deck=DID;m.from=ME;m.mid=ME+':'+(++seq);m.role=PRESENTER?'presenter':'audience';
+  peers=peers.filter(w=>w&&!w.closed);peers.forEach(w=>{try{w.postMessage(m,'*')}catch(e){}});
+  if(bc){try{bc.postMessage(m)}catch(e){}}}
+function recv(m){if(!m||m.deck!==DID||m.from===ME||seen.has(m.mid))return;seen.add(m.mid);
+  if(m.role!==(PRESENTER?'presenter':'audience')&&!linked){linked=true;pvLink()}
+  handle(m)}
+addEventListener('message',e=>recv(e.data));if(bc)bc.onmessage=e=>recv(e.data);
+
+/* ---------- state ---------- */
+let cur=0,step=0,prevCur=-1;
+const frags=i=>$$('.frag',slides[i]);
+function render(){
+  if(EDIT&&edCur!==cur)edSwitch();
+  slides.forEach((s,i)=>s.classList.toggle('active',i===cur));
+  frags(cur).forEach((f,k)=>f.classList.toggle('shown',k<step));
+  const m=meta[cur],p=posOf(cur);
+  $('#sectionLabel').textContent=(cur===0&&!slides[0].dataset.showSection)?'':m.sec;
+  $('#slideNum').textContent=numText(cur);
+  stage.classList.toggle('ed-hidden',(EDIT||PRESENTER)&&!DEL.has(cur)&&slides[cur].hasAttribute('data-hidden'));
+  stage.classList.toggle('ed-deleted',(EDIT||PRESENTER)&&DEL.has(cur));
+  const rect=$('#progRect');if(rect)rect.setAttribute('width',X(p)+2);
+  const dot=$('#progDot');if(dot){dot.setAttribute('cx',X(p));if(cur!==prevCur){dot.classList.remove('beat');void dot.getBBox();dot.classList.add('beat')}}
+  if(cur!==prevCur){resetZoom(false);redrawInk();if(!EDIT)onEnter(slides[cur]);if(READER)try{viewport.scrollTop=0;window.scrollTo(0,0)}catch(e){};prevCur=cur}
+  if(mnav){mnav.querySelector('.num').textContent=numText(cur);mnav.querySelector('.sec').textContent=m.sec||'';
+    mnav.querySelector('.bar').style.width=((p+1)/vis.length*100)+'%';mnav.querySelector('[data-m=prev]').disabled=prevVis(cur)<0;mnav.querySelector('[data-m=next]').disabled=nextVis(cur)<0}
+  if(!PRESENTER){try{history.replaceState(null,'','#'+(cur+1))}catch(e){}}
+  if(EDIT)edBarUpdate();
+  store.set('deck-slide:'+CFG.id,String(cur));
+  hud();if(PRESENTER)pvRender();hooks.render.forEach(f=>{try{f(cur,step)}catch(e){console.error(e)}})}
+/* per-slide history: fragment reveals and widget interactions, undone in reverse by Back */
+const hist={};
+function setState(i,s,broadcast){i=clamp(i|0,0,n-1);s=clamp(s|0,0,frags(i).length);
+  if(i===cur){const h=hist[i]||(hist[i]=[]);if(s===step+1)h.push({k:'frag'});else if(s<step){for(let d=step-s;d>0;d--){const j=h.map(x=>x.k).lastIndexOf('frag');if(j<0)break;h.splice(j,1)}}}
+  cur=i;step=s;
+  if(!clock.started&&!EDIT&&(i>0||s>0))clockStart(true);render();if(broadcast!==false)send({t:'go',i,s})}
+/* hidden and deleted slides are skipped when presenting; edit mode visits every slide */
+function next(){if(EDIT){if(cur<n-1)setState(cur+1,0);return}
+  if(READER){const j=nextVis(cur);if(j>=0)setState(j,frags(j).length);return}
+  if(step<frags(cur).length)setState(cur,step+1);else{const j=nextVis(cur);if(j>=0)setState(j,0)}}
+function prev(){if(EDIT){if(cur>0)setState(cur-1,0);return}
+  if(READER){const j=prevVis(cur);if(j>=0)setState(j,frags(j).length);return}const h=hist[cur];if(h&&h.length){const top=h[h.length-1];
+    if(top.k==='frag'){setState(cur,step-1);return}undoLast(cur);send({t:'undo',i:cur});return}
+  if(step>0)setState(cur,step-1);else{const j=prevVis(cur);if(j>=0)setState(j,frags(j).length)}}
+function go(i,all){setState(i,all?frags(clamp(i,0,n-1)).length:0)}
+/* whole-slide jumps (Shift+arrows, presenter buttons): skip the remaining reveals */
+/* show every fragment on the current slide at once */
+function revealAll(){if(!EDIT&&step<frags(cur).length)setState(cur,frags(cur).length)}
+function nextSlide(){const j=EDIT?(cur<n-1?cur+1:-1):nextVis(cur);if(j>=0)setState(j,0)}
+function prevSlide(){const j=EDIT?(cur>0?cur-1:-1):prevVis(cur);if(j>=0)setState(j,EDIT?0:frags(j).length)}
+
+/* ---------- lecture clock (shared) ---------- */
+const clock={started:false,acc:0,since:null};
+const elapsedMin=()=>(clock.acc+(clock.since?Date.now()-clock.since:0))/60000;
+function clockStart(broadcast){if(clock.since)return;clock.started=true;clock.since=Date.now();if(broadcast)sendClock();hud()}
+function clockPause(){if(!clock.since)return;clock.acc+=Date.now()-clock.since;clock.since=null;sendClock();hud()}
+function clockReset(){clock.acc=0;clock.since=clock.started?Date.now():null;sendClock();hud()}
+function sendClock(){send({t:'clock',c:{started:clock.started,acc:clock.acc,since:clock.since}})}
+function paceText(){const[a,b]=sectionWindow(cur);if(a==null)return{txt:'no plan',cls:''};
+  if(!clock.started)return{txt:`plan ${fmt(a)}–${b!=null?fmt(b):'?'}`,cls:''};const el=elapsedMin();
+  if(el<a-2)return{txt:`ahead (plan ${fmt(a)}–${b!=null?fmt(b):'?'})`,cls:'ahead'};
+  if(b!=null&&el>b+2)return{txt:`behind (plan ${fmt(a)}–${fmt(b)})`,cls:'behind'};
+  return{txt:`on pace (plan ${fmt(a)}–${b!=null?fmt(b):'?'})`,cls:''}}
+function hud(){const h=$('#hud');if(h.classList.contains('on')){const p=paceText();h.innerHTML=`${fmt(elapsedMin())} · <span class="${p.cls}">${p.txt}</span>`}
+  if(PRESENTER){$('#pvElapsed').textContent=fmt(elapsedMin());const p=paceText();const pe=$('#pvPace');pe.textContent=p.txt;pe.className=p.cls;
+    $('#pvClockToggle').textContent=clock.since?'Pause':(clock.started?'Resume':'Start')}}
+setInterval(hud,1000);
+
+/* ---------- fitting ---------- */
+function fitStage(st,box){let bw=box.clientWidth,bh=box.clientHeight;if(!(bw&&bh)&&box===viewport){bw=innerWidth;bh=innerHeight}if(!(bw&&bh))return;const s=Math.min(bw/W,bh/H);st.style.transform=`translate(-50%,-50%) scale(${s})`}
+function fit(){if(READER){stage.style.transform='';return}fitStage(stage,viewport);if(PRESENTER)fitStage($('#pvNextStage'),$('#pvNext'))}
+addEventListener('resize',fit);
+if(window.ResizeObserver){let roT=0;new ResizeObserver(()=>{cancelAnimationFrame(roT);roT=requestAnimationFrame(()=>{if(typeof wantReader==='function'&&wantReader()!==READER)dispatchEvent(new Event('resize'));else fit()})}).observe(document.documentElement)}
+
+/* ---------- toast & badge ---------- */
+let toastT=null;function toast(msg,ms){const t=$('#toast');t.textContent=msg;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),ms||3500)}
+const TOOL_NAMES={laser:'Laser pointer',spot:'Spotlight',pen:'Pen',hl:'Highlighter',zoom:'Zoom: click to magnify'};
+
+/* ---------- tools ---------- */
+let tool=null;
+function setTool(t,broadcast){if((READER||EDIT)&&t&&t!==tool)return;if(t===tool)t=null;tool=t;
+  ['laser','spot','pen','hl','zoom'].forEach(x=>document.body.classList.toggle('tool-'+x,tool===x));
+  laser.style.display='none';spot.style.display=tool==='spot'?'block':'none';if(tool==='spot')spotAt(null);
+  if(tool!=='zoom')resetZoom(false);
+  const b=$('#toolBadge');b.textContent=tool?TOOL_NAMES[tool]+(tool==='pen'?' (C: colour)':'')+' · Esc to stop':'';b.classList.toggle('on',!!tool&&!PRESENTER);
+  $$('#pvTools [data-tool]').forEach(x=>x.classList.toggle('on',x.dataset.tool===tool));
+  if(broadcast!==false)send({t:'tool',v:tool})}
+function toStage(e){const r=stage.getBoundingClientRect();return[(e.clientX-r.left)/r.width*W,(e.clientY-r.top)/r.height*H]}
+function laserAt(p){if(!p){laser.style.display='none';return}laser.style.display='block';laser.style.transform=`translate(${p[0]}px,${p[1]}px)`}
+function spotAt(p){spot.style.background=p?`radial-gradient(circle 170px at ${p[0]}px ${p[1]}px, transparent 0 94%, rgba(0,0,0,.74) 100%)`:'rgba(0,0,0,.74)'}
+let ptrQueued=null,ptrRaf=0;
+function queuePtr(p){ptrQueued=p;if(!ptrRaf)ptrRaf=requestAnimationFrame(()=>{ptrRaf=0;send({t:'ptr',p:ptrQueued})})}
+stage.addEventListener('pointermove',e=>{if(tool==='laser'||tool==='spot'){const p=toStage(e);tool==='laser'?laserAt(p):spotAt(p);queuePtr(p)}});
+stage.addEventListener('pointerleave',()=>{if(tool==='laser'){laserAt(null);queuePtr(null)}});
+
+/* pen */
+const strokes={};let drawing=null,penIdx=0;
+function penColors(){const cs=getComputedStyle(document.documentElement);return['--pen','--cat1','--cat2','--cat3','--ink'].map(v=>cs.getPropertyValue(v).trim()).filter(Boolean)}
+function drawStroke(s){if(s.pts.length<1)return;ictx.strokeStyle=s.c;ictx.lineWidth=s.w;ictx.beginPath();ictx.moveTo(s.pts[0][0],s.pts[0][1]);
+  if(s.pts.length===1)ictx.lineTo(s.pts[0][0]+.1,s.pts[0][1]);for(let k=1;k<s.pts.length;k++)ictx.lineTo(s.pts[k][0],s.pts[k][1]);ictx.stroke()}
+function redrawInk(){ictx.clearRect(0,0,W,H);(strokes[cur]||[]).forEach(drawStroke)}
+function inkPoint(i,id,c,w,pt){const arr=strokes[i]||(strokes[i]=[]);let s=arr.find(x=>x.id===id);if(!s){s={id,c,w,pts:[]};arr.push(s)}s.pts.push(pt);
+  if(i===cur){const k=s.pts.length;if(k>1){ictx.strokeStyle=s.c;ictx.lineWidth=s.w;ictx.beginPath();ictx.moveTo(s.pts[k-2][0],s.pts[k-2][1]);ictx.lineTo(pt[0],pt[1]);ictx.stroke()}else drawStroke(s)}}
+ink.addEventListener('pointerdown',e=>{if(tool!=='pen')return;e.preventDefault();try{ink.setPointerCapture(e.pointerId)}catch(_){}
+  const c=penColors()[penIdx%Math.max(1,penColors().length)]||'#ff2a2a';drawing={id:ME+'-'+(++seq),c,w:5};const p=toStage(e);inkPoint(cur,drawing.id,c,5,p);send({t:'ink',i:cur,id:drawing.id,c,w:5,pt:p})});
+ink.addEventListener('pointermove',e=>{if(!drawing)return;const p=toStage(e);inkPoint(cur,drawing.id,drawing.c,drawing.w,p);send({t:'ink',i:cur,id:drawing.id,c:drawing.c,w:drawing.w,pt:p})});
+ink.addEventListener('pointerup',()=>{drawing=null});ink.addEventListener('pointercancel',()=>{drawing=null});
+
+/* word highlighter */
+const WORD=/[\p{L}\p{N}’'\-]/u;
+function caretAt(x,y){const r=stage.getBoundingClientRect(),s=r.width/W,cx=r.left+x*s,cy=r.top+y*s;
+  if(document.caretRangeFromPoint)return document.caretRangeFromPoint(cx,cy);
+  if(document.caretPositionFromPoint){const p=document.caretPositionFromPoint(cx,cy);if(!p)return null;const g=document.createRange();g.setStart(p.offsetNode,p.offset);g.collapse(true);return g}return null}
+function wordAt(x,y){const c=caretAt(x,y);if(!c)return null;const node=c.startContainer;if(!node||node.nodeType!==3||!slides[cur].contains(node))return null;
+  const t=node.data;let a=c.startOffset;if(!WORD.test(t[a]||'')&&WORD.test(t[a-1]||''))a--;if(!WORD.test(t[a]||''))return null;let b=a;
+  while(a>0&&WORD.test(t[a-1]))a--;while(b<t.length&&WORD.test(t[b]))b++;const r=document.createRange();r.setStart(node,a);r.setEnd(node,b);return r}
+function unwrap(m){const p=m.parentNode;while(m.firstChild)p.insertBefore(m.firstChild,m);p.removeChild(m);p.normalize()}
+function wrapRange(range){let root=range.commonAncestorContainer;if(root.nodeType===3)root=root.parentNode;
+  const tw=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:t=>range.intersectsNode(t)&&t.data.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT});
+  const jobs=[];while(tw.nextNode()){const t=tw.currentNode;let s=0,e=t.data.length;if(t===range.startContainer)s=range.startOffset;if(t===range.endContainer)e=range.endOffset;if(s<e&&!t.parentElement.closest('mark.hl'))jobs.push([t,s,e])}
+  jobs.forEach(([t,s,e])=>{let mid=t;if(s>0)mid=t.splitText(s);if(e-s<mid.data.length)mid.splitText(e-s);const mk=document.createElement('mark');mk.className='hl';mid.parentNode.insertBefore(mk,mid);mk.appendChild(mid)})}
+function highlight(a,b){const r1=wordAt(a[0],a[1]);if(!r1)return;
+  const inMark=r1.startContainer.parentElement&&r1.startContainer.parentElement.closest('mark.hl');
+  if(!b&&inMark){unwrap(inMark);return}
+  let range=r1;if(b){const r2=wordAt(b[0],b[1]);if(r2){range=document.createRange();
+    if(r1.compareBoundaryPoints(Range.START_TO_START,r2)<=0){range.setStart(r1.startContainer,r1.startOffset);range.setEnd(r2.endContainer,r2.endOffset)}
+    else{range.setStart(r2.startContainer,r2.startOffset);range.setEnd(r1.endContainer,r1.endOffset)}}}
+  wrapRange(range)}
+let hlDown=null;
+stage.addEventListener('pointerdown',e=>{if(tool==='hl'&&e.target.closest('.slide')){hlDown=toStage(e);e.preventDefault()}});
+stage.addEventListener('pointerup',e=>{if(tool!=='hl'||!hlDown)return;const up=toStage(e);const far=Math.hypot(up[0]-hlDown[0],up[1]-hlDown[1])>10;
+  const a=hlDown;hlDown=null;highlight(a,far?up:null);send({t:'hl',a,b:far?up:null})});
+
+/* zoom */
+let zoomed=null;
+function zoomAt(p,broadcast){const s=slides[cur];if(!p||zoomed){resetZoom(broadcast);return}zoomed=p;s.style.transformOrigin=`${p[0]}px ${p[1]}px`;s.style.transform='scale(2)';if(broadcast!==false)send({t:'zoom',p})}
+function resetZoom(broadcast){if(zoomed===null&&!slides.some(s=>s.style.transform))return;zoomed=null;slides.forEach(s=>{s.style.transform=''});if(broadcast!==false)send({t:'zoom',p:null})}
+
+function clearAnnotations(i,broadcast){strokes[i]=[];if(i===cur)redrawInk();$$('mark.hl',slides[i]).forEach(unwrap);if(broadcast!==false)send({t:'clear',i})}
+
+/* tool click interception (capture phase, before widgets and sync) */
+stage.addEventListener('click',e=>{if(!e.target.closest('.slide'))return;
+  if(tool==='hl'||tool==='pen'){e.stopPropagation();e.preventDefault();return}
+  if(tool==='zoom'){e.stopPropagation();e.preventDefault();zoomAt(toStage(e))}},true);
+
+/* ---------- screens ---------- */
+let screenMode='';
+function setScreen(v,broadcast){screenMode=screenMode===v?'':v;
+  if(!PRESENTER){$('#blank').classList.toggle('on',screenMode==='black');$('#whiteout').classList.toggle('on',screenMode==='white')}
+  $$('#pvTools [data-act="black"],#pvTools [data-act="white"]').forEach(b=>b.classList.toggle('on',b.dataset.act===screenMode));
+  if(PRESENTER){const ps=$('#pvScreen');ps.className=screenMode;ps.textContent=screenMode?`Audience screen is ${screenMode}. Press ${screenMode==='black'?'B':'W'} to show the slide again.`:''}
+  if(broadcast!==false)send({t:'screen',v:screenMode,abs:true})}
+$('#blank').addEventListener('click',()=>setScreen('black'));$('#whiteout').addEventListener('click',()=>setScreen('white'));
+
+/* ---------- activity timer ---------- */
+const tb=$('#timerBox');let tLeft=180,tInt=null;
+function tShow(){$('[data-timer-display]',tb).textContent=Math.floor(tLeft/60)+':'+String(tLeft%60).padStart(2,'0')}
+function setTimerVisible(v,broadcast){tb.classList.toggle('on',v);if(broadcast!==false)send({t:'ui',timer:v});$$('#pvTools [data-act="timer"]').forEach(b=>b.classList.toggle('on',v))}
+tb.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.timerSet){clearInterval(tInt);tInt=null;tLeft=+b.dataset.timerSet*60;tb.classList.remove('done');$('[data-timer-go]',tb).textContent='Start';tShow()}
+  else if(b.hasAttribute('data-timer-go')){if(tInt){clearInterval(tInt);tInt=null;b.textContent='Start';return}b.textContent='Pause';
+    tInt=setInterval(()=>{tLeft--;tShow();if(tLeft<=0){clearInterval(tInt);tInt=null;tb.classList.add('done');b.textContent='Start'}},1000)}
+  else if(b.hasAttribute('data-timer-close'))setTimerVisible(false,false)});
+tShow();
+
+/* ---------- declarative widgets ---------- */
+/* initial state for widgets under root (run at load, and again for a slide whose source was replaced) */
+/* live boards: [data-board="key"] boxes the lecturer types into during class; mirrored to the
+   other window, kept in this browser, and written into the file when the deck is saved */
+const BKEYB='deck-boards:'+CFG.id;let BOARDS={};if(!STUDENT){try{BOARDS=JSON.parse(store.get(BKEYB)||'{}')||{}}catch(e){}}
+let boardT=null;
+function boardInput(b){const k=b.dataset.board;BOARDS[k]=b.innerHTML;$$('[data-board]',stage).forEach(x=>{if(x!==b&&x.dataset.board===k)x.innerHTML=b.innerHTML});
+  clearTimeout(boardT);boardT=setTimeout(()=>{store.set(BKEYB,JSON.stringify(BOARDS))},300);send({t:'board',k,h:b.innerHTML})}
+document.addEventListener('input',e=>{const b=e.target instanceof Element&&e.target.closest('[data-board]');if(b&&!applying)boardInput(b)});
+function initWidgets(root,editing){const all=sel=>[...(root.matches&&root.matches(sel)?[root]:[]),...$$(sel,root)];
+  all('[data-stepper] [data-step-item]').forEach(x=>{if(!x.hasAttribute('data-shown'))x.classList.add('hid')});
+  all('[data-tabs]').forEach(box=>{const want=box.dataset.tabs||'';const hasPane=$$('[data-pane]',box).some(p=>p.dataset.pane===want);
+    const first=$$('[data-tab]',box)[0];const def=hasPane?want:(first?first.dataset.tab:null);tabInit.set(box,def);if(def!==null)selectTab(box,def,false)});
+  all('[data-board]').forEach(b=>{if(STUDENT){b.removeAttribute('contenteditable');return}b.setAttribute('contenteditable','true');b.setAttribute('spellcheck','true');
+    const k=b.dataset.board;if(BOARDS[k]!=null&&b.innerHTML!==BOARDS[k])b.innerHTML=BOARDS[k]});
+  if(!editing)all('[data-countdown]').forEach(b=>{const d=$('[data-cd-display]',b),s=+b.dataset.countdown||600;if(d)d.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0')})}
+const SNAP_SEL='[data-toggle],[data-tab],[data-pane],[data-tabs],[data-step-item],.sort-item,[data-toggle-class],[data-scope],[data-stepper],[data-sort],input[type=range]';
+function snapshot(slide){return[slide,...$$(SNAP_SEL,slide)].map(el=>({el,cls:el.getAttribute('class'),hid:el.hasAttribute('hidden'),c:el.getAttribute('data-c'),dial:el.style?el.style.getPropertyValue('--dial'):'',v:el.tagName==='INPUT'?el.value:null}))}
+function restore(snap){snap.forEach(o=>{const el=o.el;if(o.cls===null)el.removeAttribute('class');else el.setAttribute('class',o.cls);
+  if(o.hid)el.setAttribute('hidden','');else el.removeAttribute('hidden');
+  if(o.c===null)el.removeAttribute('data-c');else el.setAttribute('data-c',o.c);
+  if(el.style){if(o.dial)el.style.setProperty('--dial',o.dial);else el.style.removeProperty('--dial')}
+  if(o.v!==null&&el.value!==o.v){el.value=o.v;el.dispatchEvent(new Event('input',{bubbles:true}))}})}
+function recordUndo(target){const sl=target.closest&&target.closest('.slide');if(!sl||!sl.closest('#stage'))return;const i=slides.indexOf(sl);if(i<0)return;
+  (hist[i]||(hist[i]=[])).push({k:'snap',s:snapshot(sl)})}
+function undoLast(i){const h=hist[i];if(!h)return;for(let j=h.length-1;j>=0;j--){if(h[j].k!=='frag'){const e=h.splice(j,1)[0];if(e.k==='snap')restore(e.s);else if(e.k==='fn'){try{e.f()}catch(err){console.error(err)}}return}}}
+function resetSlide(i,broadcast){const h=hist[i];if(!h)return;const snaps=h.filter(e=>e.k!=='frag');if(!snaps.length)return;
+  for(let j=snaps.length-1;j>=0;j--){const e=snaps[j];if(e.k==='snap')restore(e.s);else{try{e.f()}catch(err){}}}
+  hist[i]=h.filter(e=>e.k==='frag');if(broadcast!==false)send({t:'reset',i});toast('Slide reset',1200)}
+function selectTab(box,key,user){$$('[data-tab]',box).forEach(b=>{if(b.closest('[data-tabs]')===box)b.classList.toggle('on',b.dataset.tab===key)});
+  $$('[data-pane]',box).forEach(p=>{if(p.closest('[data-tabs]')!==box)return;if(p.dataset.pane===key)p.removeAttribute('hidden');else p.setAttribute('hidden','')});
+  const btn=$$('[data-tab]',box).find(b=>b.dataset.tab===key);if(btn&&btn.dataset.dial!==undefined)box.style.setProperty('--dial',btn.dataset.dial+'%');
+  if(user)box.classList.add('has-sel');loadImages(box)}
+const tabInit=new WeakMap();
+/* clicking the selected tab again returns the widget to its initial state */
+function clickTab(box,key){const btn=$$('[data-tab]',box).find(b=>b.dataset.tab===key&&b.closest('[data-tabs]')===box);
+  if(btn&&btn.classList.contains('on')&&box.classList.contains('has-sel')){const init=tabInit.get(box);if(init!==null&&init!==undefined)selectTab(box,init,false);box.classList.remove('has-sel');return}
+  selectTab(box,key,true)}
+const cdState=new WeakMap();
+function startCountdown(box){if(cdState.get(box))return;let left=+box.dataset.countdown||600;const d=$('[data-cd-display]',box);
+  const iv=setInterval(()=>{left--;if(d)d.textContent=Math.floor(Math.max(0,left)/60)+':'+String(Math.max(0,left)%60).padStart(2,'0');if(left<=0){clearInterval(iv);box.classList.add('done')}},1000);cdState.set(box,iv);
+  const btn=$('[data-cd-start]',box);if(btn)btn.textContent='Running'}
+initWidgets(stage);
+const WIDGET_SEL='[data-tab],[data-sort-reveal],[data-sort-reset],.sort-item,[data-step],[data-toggle-class],[data-toggle]';
+document.addEventListener('click',e=>{const t=e.target;if(!(t instanceof Element))return;
+  /* edit mode: clicks place the text cursor; Alt+click still works the widget so hidden parts can be edited */
+  if(EDIT&&t.closest('#stage .slide')){if(!e.altKey)return;const fl=t.closest('.flip');if(fl){fl.classList.toggle('ed-open');return}}
+  if(t.closest(WIDGET_SEL))recordUndo(t);
+  const tab=t.closest('[data-tab]');if(tab){const box=tab.closest('[data-tabs]');if(box){clickTab(box,tab.dataset.tab);return}}
+  const sr=t.closest('[data-sort-reveal]');if(sr){$$('.sort-item',sr.closest('[data-sort]')).forEach(x=>x.dataset.c=x.dataset.answer||'');return}
+  const sx=t.closest('[data-sort-reset]');if(sx){$$('.sort-item',sx.closest('[data-sort]')).forEach(x=>x.dataset.c='');return}
+  const si=t.closest('.sort-item');if(si){const box=si.closest('[data-sort]');const cats=((box&&box.dataset.sort)||'1,2,3').split(',').map(s=>s.trim());
+    const k=cats.indexOf(si.dataset.c||'');si.dataset.c=k<0?cats[0]:(k+1<cats.length?cats[k+1]:'');return}
+  const st=t.closest('[data-step]');if(st){const box=st.closest('[data-stepper]');if(!box)return;const items=$$('[data-step-item]',box);const hid=items.filter(x=>x.classList.contains('hid'));
+    if(st.dataset.step==='next'){if(hid[0])hid[0].classList.remove('hid')}else if(st.dataset.step==='all')hid.forEach(x=>x.classList.remove('hid'));else items.forEach(x=>x.classList.add('hid'));return}
+  const ct=t.closest('[data-toggle-class]');if(ct){const scope=ct.closest('[data-scope]')||ct.closest('.slide');if(scope)scope.classList.toggle(ct.dataset.toggleClass);ct.classList.toggle('on');return}
+  const cd=t.closest('[data-cd-start]');if(cd){startCountdown(cd.closest('[data-countdown]'));return}
+  const tg=t.closest('[data-toggle]');if(tg){tg.classList.toggle('open');return}});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'){const f=document.activeElement;if(f&&f.matches&&f.matches('[data-toggle]:not(button),[data-tab]:not(button)')){e.preventDefault();f.click()}}});
+
+document.addEventListener('pointerdown',e=>{const t=e.target;if(t instanceof Element&&t.matches('input[type=range]')){recordUndo(t);const o=pathOf(t);if(o)send({t:'rec',o})}},true);
+/* on-enter animations */
+function onEnter(s){
+  $$('[data-count]',s).forEach(c=>{const target=+c.dataset.count,dec=+(c.dataset.dec||0),suf=c.dataset.suf||'',pre=c.dataset.pre||'';
+    const isYear=!dec&&target>1000&&target<2200&&c.dataset.year!==undefined;
+    const show=v=>c.textContent=pre+(isYear?String(Math.round(v)):v.toLocaleString(CFG.locale||undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec}))+suf;
+    if(reduce){show(target);return}const t0=performance.now(),dur=1400;
+    const tick=t=>{const p=Math.min(1,(t-t0)/dur);show(target*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)};requestAnimationFrame(tick)});
+  $$('.bars',s).forEach(b=>{b.classList.remove('revealed');$$('.bar-fill',b).forEach(f=>f.style.width='0');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{b.classList.add('revealed');$$('.bar-fill',b).forEach(f=>f.style.width=(f.dataset.w||0)+'%')}))});
+  hooks.enter.forEach(f=>{try{f(s,slides.indexOf(s))}catch(e){console.error(e)}})}
+
+/* ---------- click & input sync ---------- */
+let applying=false;
+function pathOf(el){const root=el.closest('[data-sync-root]');if(!root)return null;const p=[];let e=el;
+  while(e&&e!==root){const par=e.parentElement;if(!par)return null;p.unshift([...par.children].indexOf(e));e=par}return{r:root.dataset.syncRoot,p}}
+function fromPath(o){let e=document.querySelector(`[data-sync-root="${o.r}"]`);for(const k of o.p){if(!e)return null;e=e.children[k]}return e}
+document.addEventListener('click',e=>{if(applying||EDIT||!(e.target instanceof Element))return;
+  if(e.target.closest('#progress')||(e.target.closest('#pv')&&!e.target.closest('#viewport')))return;
+  if((tool==='hl'||tool==='pen'||tool==='zoom')&&e.target.closest('#stage .slide'))return;
+  const o=pathOf(e.target);if(o)send({t:'click',o})},true);
+document.addEventListener('input',e=>{if(applying||EDIT||!(e.target instanceof Element)||e.target.closest('[data-board]'))return;const o=pathOf(e.target);if(o)send({t:'input',o,v:e.target.value})},true);
+
+/* ---------- message handling ---------- */
+function handle(m){switch(m.t){
+  case 'hello':send({t:'state',i:cur,s:step,tool,screen:screenMode,timer:tb.classList.contains('on'),c:{started:clock.started,acc:clock.acc,since:clock.since}});break;
+  case 'state':setState(m.i,m.s,false);if(m.c)Object.assign(clock,m.c);if((m.tool||null)!==tool)setTool(m.tool||null,false);
+    if(m.screen!==undefined&&m.screen!==screenMode){screenMode='';if(m.screen)setScreen(m.screen,false)}setTimerVisible(!!m.timer,false);break;
+  case 'go':setState(m.i,m.s,false);break;
+  case 'clock':Object.assign(clock,m.c);hud();break;
+  case 'tool':if((m.v||null)!==tool)setTool(m.v||null,false);break;
+  case 'ptr':if(tool==='laser')laserAt(m.p);else if(tool==='spot')spotAt(m.p);break;
+  case 'ink':inkPoint(m.i,m.id,m.c,m.w,m.pt);break;
+  case 'hl':highlight(m.a,m.b);break;
+  case 'zoom':if(m.p){zoomed=null;zoomAt(m.p,false)}else resetZoom(false);break;
+  case 'clear':clearAnnotations(m.i,false);break;
+  case 'undo':undoLast(m.i);break;
+  case 'rec':{const el=fromPath(m.o);if(el)recordUndo(el);break}
+  case 'reset':resetSlide(m.i,false);break;
+  case 'screen':if(m.v!==screenMode){screenMode='';if(m.v)setScreen(m.v,false);else setScreen('',false)}break;
+  case 'ui':setTimerVisible(!!m.timer,false);break;
+  case 'theme':setTheme(m.v,false);break;
+  case 'click':{const el=fromPath(m.o);if(el){applying=true;try{el.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window}))}finally{applying=false}}break}
+  case 'slide':if(m.i>=0&&m.i<n&&typeof m.h==='string'){SRC[m.i]=m.h;replaceLive(m.i,EDIT&&edCur===m.i);relayout();render()}break;
+  case 'board':{BOARDS[m.k]=m.h;store.set(BKEYB,JSON.stringify(BOARDS));$$('[data-board]',stage).forEach(b=>{if(b.dataset.board===m.k&&b.innerHTML!==m.h&&document.activeElement!==b)b.innerHTML=m.h});break}
+  case 'reload':setTimeout(()=>location.reload(),150);break;
+  case 'del':DEL.clear();(m.d||[]).forEach(x=>DEL.add(x));relayout();render();break;
+  case 'input':{const el=fromPath(m.o);if(el){applying=true;try{el.value=m.v;el.dispatchEvent(new Event('input',{bubbles:true}))}finally{applying=false}}break}
+}}
+
+/* ---------- overview & help ---------- */
+function toggleOverview(){const o=$('#overview');if(o.classList.contains('on')){o.classList.remove('on');return}
+  let h='',last=null;meta.forEach((m,i)=>{if(m.sec!==last){if(last!==null)h+='</div>';h+=`<h4>${m.sec||'Slides'}${m.at!=null?` <span class="muted" style="font-size:15px;font-family:var(--body)">planned from ${fmt(m.at)}</span>`:''}</h4><div class="ovgrid">`;last=m.sec}
+    const sk=skipped(i),lab=DEL.has(i)?'deleted':'hidden';
+    h+=`<button type="button" data-i="${i}" class="${i===cur?'cur':''}${sk?' skip':''}"><span class="n">${sk?lab:posOf(i)+1}</span>${m.title.replace(/</g,'&lt;')}</button>`});h+='</div>';
+  $('#ovBody').innerHTML=h;$$('#ovBody button').forEach(b=>b.onclick=()=>{o.classList.remove('on');go(+b.dataset.i,false)});o.classList.add('on')}
+const KEYS=[['→ · Space · PgDn','Next step or slide'],['← · PgUp','Back: undo last click on this slide, hide last reveal, then previous slide'],['Home · End','First · last slide'],['Number + Enter','Go to slide'],['O','Overview of all slides'],
+  ['V','Open presenter view (second window for your laptop screen)'],['F','Fullscreen · Shift+F fullscreen on the other screen (Chrome/Edge)'],
+  ['L','Laser pointer'],['S','Spotlight'],['P','Pen · C changes colour'],['H','Highlighter: click a word, or drag across words'],['Z','Zoom: click a spot, click again to zoom out'],
+  ['E','Erase pen and highlights on this slide'],['B · W','Black · white screen'],['T','Activity timer'],['K','Pace clock on this screen'],['D','Light/dark'],['R','Reset this slide’s clicks (Back undoes one at a time)'],['Shift+E','Edit: change slide text and notes, hide or delete slides, save'],['Esc','Stop tool / close panel'],['Shift+→ · Shift+←','Next · previous slide, skipping reveals'],['A','Reveal everything on this slide'],['?','This help']];
+const KEYS_SHOWN=STUDENT?KEYS.filter(k=>!/presenter|Laser|Spotlight|Pen|Highlighter|Zoom|Erase|Black|pace|Activity timer|other screen|Edit:/i.test(k[1])):KEYS;
+$('#help').innerHTML=`<h2>Controls</h2><p class="muted" style="font-size:17px;max-width:none">${STUDENT?"On a phone: swipe, or use the arrows at the bottom. Tap the slide counter for the list of all slides.":"Everything also works from the presenter view; the two screens stay in sync."} Click anywhere to close.</p><div class="cols"><table>${KEYS_SHOWN.slice(0,Math.ceil(KEYS_SHOWN.length/2)).map(k=>`<tr><td><kbd>${k[0]}</kbd></td><td>${k[1]}</td></tr>`).join('')}</table><table>${KEYS_SHOWN.slice(Math.ceil(KEYS_SHOWN.length/2)).map(k=>`<tr><td><kbd>${k[0]}</kbd></td><td>${k[1]}</td></tr>`).join('')}</table></div>`;
+$('#help').addEventListener('click',()=>$('#help').classList.remove('on'));
+
+/* ---------- fullscreen & presenter window ---------- */
+function toggleFullscreen(){try{if(!document.fullscreenElement)document.documentElement.requestFullscreen().catch(()=>toast('Fullscreen is blocked here. Open the deck in its own browser tab.'));else document.exitFullscreen()}catch(e){}}
+async function fullscreenOther(){try{if('getScreenDetails' in window){const sd=await window.getScreenDetails();const other=sd.screens.find(s=>s!==sd.currentScreen);
+  if(other){await document.documentElement.requestFullscreen({screen:other});return}toast('Only one screen detected. Connect the projector (extended display), then try again.');return}}catch(e){}
+  toast('Drag this window onto the projector screen, then press F.',5000)}
+function openPresenter(){if(PRESENTER||STUDENT||READER)return;const url=location.href.split('#')[0]+'#presenter';let w=null;
+  try{w=window.open(url,'presenter-'+DID.replace(/\W/g,''),'popup,width=1280,height=800')}catch(e){}
+  if(w){peers.push(w);toast('Presenter view opened. Keep it on your laptop; move this window to the projector and press F.',6000)}
+  else toast('The browser blocked the presenter window. Allow pop-ups for this page, or open this page in a new window and add #presenter to the address.',8000)}
+
+/* ---------- keyboard ---------- */
+let digits='',digitT=null;
+addEventListener('keydown',e=>{
+  if((e.ctrlKey||e.metaKey)&&!e.altKey&&(e.key==='s'||e.key==='S')&&!STUDENT){e.preventDefault();quickSave();return}
+  if(EDIT){const k=e.key;
+    if(k==='Escape'){e.preventDefault();const open=$$('.overlay.on').filter(o=>o.id!=='blank'&&o.id!=='whiteout');
+      if(open.length){open.forEach(o=>o.classList.remove('on'));return}
+      const a=document.activeElement;if(a&&a.isContentEditable){a.blur();try{getSelection().removeAllRanges()}catch(_){}return}editOff();return}}
+  if(e.target instanceof Element&&e.target.matches('input:not([type=range]),textarea,[contenteditable],[contenteditable] *'))return;
+  if(e.ctrlKey||e.metaKey||e.altKey)return;const k=e.key;
+  if(k==='E'&&!STUDENT){EDIT?editOff():editOn();return}
+  if(EDIT&&/^[bwtlsphzcekrBWTLSPHZCKR.]$/.test(k))return;
+  if(k==='Escape'){$$('.overlay').forEach(o=>{if(o.id!=='blank'&&o.id!=='whiteout')o.classList.remove('on')});if(screenMode)setScreen(screenMode);if(zoomed)resetZoom();if(tool)setTool(tool);return}
+  if(/^[0-9]$/.test(k)){digits+=k;clearTimeout(digitT);digitT=setTimeout(()=>digits='',2500);toast('Go to slide '+digits+'… (Enter)',2500);return}
+  if(k==='Enter'&&digits){e.preventDefault();const t=vis[+digits-1];if(t!==undefined)go(t,false);digits='';$('#toast').classList.remove('on');return}
+  if($('#overview').classList.contains('on')&&!['o','O'].includes(k))return;
+  if(e.shiftKey&&k==='ArrowRight'){e.preventDefault();nextSlide();return}
+  if(e.shiftKey&&k==='ArrowLeft'){e.preventDefault();prevSlide();return}
+  if(['ArrowRight','ArrowDown','PageDown',' '].includes(k)){if(k===' '&&e.target instanceof Element&&e.target.closest('button,[role=button]'))return;e.preventDefault();next()}
+  else if(['ArrowLeft','ArrowUp','PageUp'].includes(k)){e.preventDefault();prev()}
+  else if(k==='Home')go(vis[0],false);else if(k==='End')go(vis[vis.length-1],true);
+  else if(k==='f')toggleFullscreen();else if(k==='F')fullscreenOther();
+  else if(k==='o'||k==='O')toggleOverview();
+  else if(k==='b'||k==='B'||k==='.')setScreen('black');else if(k==='w'||k==='W')setScreen('white');
+  else if(k==='t'||k==='T')setTimerVisible(!tb.classList.contains('on'));
+  else if(k==='l'||k==='L')setTool('laser');else if(k==='s'||k==='S')setTool('spot');else if(k==='p'||k==='P')setTool('pen');
+  else if(k==='h'||k==='H')setTool('hl');else if(k==='z'||k==='Z')setTool('zoom');
+  else if(k==='c'||k==='C'){penIdx++;const c=penColors();toast('Pen colour '+((penIdx%Math.max(1,c.length))+1)+' of '+c.length,1200)}
+  else if(k==='e')clearAnnotations(cur);
+  else if(k==='k'||k==='K'){$('#hud').classList.toggle('on');hud()}
+  else if(k==='d'||k==='D')setTheme(isDark()?'light':'dark',true);
+  else if(k==='v'||k==='V')openPresenter();
+  else if(k==='r'||k==='R')resetSlide(cur);
+  else if(k==='a'||k==='A')revealAll();
+  else if(k==='?')$('#help').classList.toggle('on');
+});
+/* touch gestures: tap the slide = next step, hold = all slides (swipe below) */
+(function(){if(!IS_TOUCH||PRESENTER)return;let t0=0,sx=0,sy=0,hold=null,moved=false;
+  const skip=el=>el instanceof Element&&!!el.closest('button,a,input,textarea,select,label,[data-toggle],[data-tab],[data-step],.sort-item,.flip,.pick,.card,.board,[contenteditable],#mnav,#overview,#help,#hint,#edBar,#edNotesWrap,#timerBox,.timeline,.continuum');
+  addEventListener('touchstart',e=>{if(tool||EDIT||e.touches.length>1){clearTimeout(hold);return}t0=Date.now();moved=false;sx=e.touches[0].clientX;sy=e.touches[0].clientY;clearTimeout(hold);
+    if(skip(e.target))return;hold=setTimeout(()=>{hold='done';toggleOverview()},650)},{passive:true});
+  addEventListener('touchmove',e=>{const t=e.touches[0];if(Math.abs(t.clientX-sx)>12||Math.abs(t.clientY-sy)>12){moved=true;if(hold!=='done')clearTimeout(hold)}},{passive:true});
+  addEventListener('touchend',e=>{if(hold==='done'){hold=null;e.preventDefault();return}clearTimeout(hold);hold=null;
+    if(moved||tool||EDIT||Date.now()-t0>500||skip(e.target))return;const ov=$('#overview');if(ov&&ov.classList.contains('on'))return;
+    if(READER)return; e.preventDefault();next()},{passive:false})})();
+let tx=null,ty=null;addEventListener('touchstart',e=>{if(tool)return;const t=e.target;if(t instanceof Element&&t.closest('input,.timeline,#overview,#mnav'))return;tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy))(dx<0?next:prev)();tx=null});
+
+/* cursor auto-hide on the audience screen */
+let idleT=null;if(!PRESENTER)addEventListener('mousemove',()=>{document.body.classList.remove('hide-cursor');clearTimeout(idleT);idleT=setTimeout(()=>{if(!tool&&!EDIT)document.body.classList.add('hide-cursor')},2500)});
+setTimeout(()=>{const h=$('#hint');if(h&&h.style.pointerEvents!=='auto')h.style.opacity=0},7000);
+
+/* ---------- presenter view ---------- */
+let notesSize=+(store.get('deck-notes-size')||20);
+function pvLink(){if(!PRESENTER)return;$('#pvLink').textContent=linked?'connected':'not connected: press V in the audience window, or open the deck there';}
+function pvRender(){
+  $('#pvSlide').textContent=numText(cur);$('#pvSection').textContent=meta[cur].sec||'';
+  fillNotes();
+  const fr=frags(cur).length,left=EDIT?0:fr-step,nx=EDIT?(cur<n-1?cur+1:-1):nextVis(cur);let src=null,lbl;
+  if(left>0){src=slides[cur];lbl=`This slide: ${left} more reveal${left>1?'s':''} before moving on`}
+  else if(nx>=0){src=slides[nx];lbl='Next: '+meta[nx].title+(skipped(nx)?(DEL.has(nx)?' (deleted)':' (hidden)'):'')}else lbl='End of deck';
+  $('#pvNextLbl').textContent=lbl;const box=$('#pvNextStage');box.innerHTML='';
+  if(src){const c=src.cloneNode(true);c.removeAttribute('id');$$('[id]',c).forEach(x=>x.removeAttribute('id'));c.classList.add('active');c.style.transform='';box.appendChild(c)}
+  fitStage(box,$('#pvNext'))}
+if(PRESENTER){document.body.classList.add('presenter');$('#pv').appendChild(viewport);{const ps=document.createElement('div');ps.id='pvScreen';viewport.appendChild(ps)}document.title='Presenter · '+document.title;
+  document.documentElement.style.setProperty('--notes-size',notesSize+'px');
+  $('#pvSmaller').onclick=()=>{notesSize=Math.max(12,notesSize-2);document.documentElement.style.setProperty('--notes-size',notesSize+'px');store.set('deck-notes-size',notesSize)};
+  $('#pvBigger').onclick=()=>{notesSize=Math.min(44,notesSize+2);document.documentElement.style.setProperty('--notes-size',notesSize+'px');store.set('deck-notes-size',notesSize)};
+  $('#pvClockToggle').onclick=()=>{clock.since?clockPause():(clock.started=true,clockStart(true))};$('#pvClockReset').onclick=clockReset;
+  $$('#pvTools [data-tool]').forEach(b=>b.onclick=()=>setTool(b.dataset.tool));
+  $$('#pvTools [data-act]').forEach(b=>b.onclick=()=>{const a=b.dataset.act;if(a==='clear')clearAnnotations(cur);else if(a==='black'||a==='white')setScreen(a);
+    else if(a==='timer')setTimerVisible(!tb.classList.contains('on'));else if(a==='overview')toggleOverview();else if(a==='next')next();else if(a==='prev')prev();else if(a==='nextslide')nextSlide();else if(a==='revealall')revealAll();else if(a==='prevslide')prevSlide();else if(a==='edit')EDIT?editOff():editOn()});
+  const nowT=()=>{const d=new Date();$('#pvNow').textContent=d.getHours()+':'+String(d.getMinutes()).padStart(2,'0')};nowT();setInterval(nowT,15000);
+  addEventListener('resize',()=>fitStage($('#pvNextStage'),$('#pvNext')));pvLink();
+  /* resizable layout: drag the bars between live slide / next slide / notes; remembered in this browser */
+  const LKEY='deck-pv-layout';let lay={};try{lay=JSON.parse(store.get(LKEY)||'{}')||{}}catch(e){}
+  const applyLay=()=>{const r=document.documentElement.style;lay.L?r.setProperty('--pvL',lay.L.toFixed(1)+'%'):r.removeProperty('--pvL');lay.N?r.setProperty('--pvN',lay.N.toFixed(1)+'%'):r.removeProperty('--pvN');fit()};
+  const saveLay=()=>store.set(LKEY,JSON.stringify(lay));applyLay();
+  [['#pvVSplit','L'],['#pvHSplit','N']].forEach(([sel,key])=>{const el=$(sel);if(!el)return;
+    const setFrom=(x,y)=>{const r=$('#pv').getBoundingClientRect();if(key==='L')lay.L=clamp((x-r.left-12)/(r.width-24)*100,25,82);else lay.N=clamp((r.bottom-12-y)/(r.height-24)*100,8,70);applyLay()};
+    el.addEventListener('pointerdown',e=>{e.preventDefault();try{el.setPointerCapture(e.pointerId)}catch(_){}el.classList.add('drag');document.body.classList.add('pv-dragging')});
+    el.addEventListener('pointermove',e=>{if(el.classList.contains('drag'))setFrom(e.clientX,e.clientY)});
+    const end=()=>{if(!el.classList.contains('drag'))return;el.classList.remove('drag');document.body.classList.remove('pv-dragging');saveLay()};
+    el.addEventListener('pointerup',end);el.addEventListener('pointercancel',end);el.addEventListener('lostpointercapture',end);
+    el.addEventListener('dblclick',()=>{delete lay[key];applyLay();saveLay()});
+    el.addEventListener('keydown',e=>{const d={ArrowLeft:-2,ArrowUp:2,ArrowRight:2,ArrowDown:-2}[e.key];if(d===undefined)return;e.preventDefault();e.stopPropagation();
+      const now=key==='L'?(lay.L||$('#viewport').getBoundingClientRect().width/($('#pv').getBoundingClientRect().width-24)*100):(lay.N||$('#pvNotesWrap').getBoundingClientRect().height/($('#pv').getBoundingClientRect().height-24)*100);
+      if(key==='L')lay.L=clamp(now+(e.key==='ArrowLeft'||e.key==='ArrowRight'?d:0),25,82);else lay.N=clamp(now+(e.key==='ArrowUp'||e.key==='ArrowDown'?d:0),8,70);applyLay();saveLay()})});
+  $('#pvLayoutReset').onclick=()=>{lay={};applyLay();saveLay()};
+  /* collapsible tool buttons, remembered with the layout */
+  const tt=$('#pvToolsToggle');const setTools=c=>{document.body.classList.toggle('pv-tools-collapsed',c);tt.textContent=c?'▸ Show tools':'▾ Hide tools';lay.T=c?1:0;fit()};
+  setTools(!!lay.T);tt.onclick=()=>{setTools(!document.body.classList.contains('pv-tools-collapsed'));saveLay()}}
+
+/* ---------- editing (Shift+E, or Edit in the presenter view) ----------
+   The current slide becomes editable text; widgets show every part (Alt+click
+   still operates them). What gets stored is the slide's source with the edits,
+   never its live state: widget classes/attributes are put back to how they were
+   when the slide was opened for editing before it is serialised. */
+let edSnap=[],edBase='',edT=null,ART=null,DLS=null;
+function replaceLive(i,editable){const old=slides[i],nw=parseSlide(SRC[i]);if(!nw)return;
+  old.replaceWith(nw);slides[i]=nw;hist[i]=[];strokes[i]=[];if(i===cur)nw.classList.add('active');
+  if(editable){edSnap=[nw,...nw.querySelectorAll('*')].map(el=>[el,el.getAttribute('class'),el.getAttribute('hidden'),el.getAttribute('style')]);
+    initWidgets(nw,true);loadImages(nw);nw.setAttribute('contenteditable','true');nw.setAttribute('spellcheck','true');edBase=cleanHTML(nw)}
+  else{initWidgets(nw);loadImages(nw)}
+  if(READER){exitReader();enterReader()}}
+function cleanHTML(node){const now=edSnap.map(([el])=>[el,el.getAttribute('class'),el.getAttribute('hidden'),el.getAttribute('style')]);
+  const put=a=>a.forEach(([el,c,h,st])=>{if(!node.contains(el))return;c===null?el.removeAttribute('class'):el.setAttribute('class',c);h===null?el.removeAttribute('hidden'):el.setAttribute('hidden',h);st===null?el.removeAttribute('style'):el.setAttribute('style',st)});
+  put(edSnap);const c=node.cloneNode(true);put(now);
+  c.removeAttribute('contenteditable');c.removeAttribute('spellcheck');c.classList.remove('active');
+  c.querySelectorAll('img[data-img]').forEach(im=>{im.removeAttribute('src');im.removeAttribute('decoding')});
+  c.querySelectorAll('mark.hl').forEach(unwrap);
+  return c.outerHTML}
+function edSave(){const e={};SRC.forEach((h,i)=>{if(h!==PRISTINE[i])e[i]=h});const d=[...DEL];
+  if(!Object.keys(e).length&&!d.length)store.del(EKEY);else store.set(EKEY,JSON.stringify({h:PHASH,e,d}))}
+const changedCount=()=>SRC.filter((h,i)=>h!==PRISTINE[i]).length+[...DEL].filter(i=>SRC[i]===PRISTINE[i]).length;
+function edCommit(){clearTimeout(edT);edT=null;if(!EDIT||edCur<0)return;const h=cleanHTML(slides[edCur]);
+  if(h===edBase)return;edBase=h;SRC[edCur]=h;edSave();send({t:'slide',i:edCur,h});buildMeta();edBarUpdate()}
+function edDirty(){clearTimeout(edT);edT=setTimeout(edCommit,450);const s=$('#edStatus');if(s)s.textContent='Editing…'}
+function edSwitch(){if(edCur>=0&&edCur!==cur&&edCur<n){edCommit();replaceLive(edCur,false)}edCur=cur;replaceLive(cur,true);fillNotes()}
+/* speaker notes: the presenter's notes pane, or a panel under the slide in the main window */
+function notesEl(){return PRESENTER?$('#pvNotes'):$('#edNotes')}
+function fillNotes(){const el=notesEl();if(!el)return;const a=slides[cur].querySelector('aside.notes');
+  if(EDIT){el.innerHTML=a?a.innerHTML.trim():'';el.setAttribute('contenteditable','true');el.setAttribute('spellcheck','true')}
+  else{el.removeAttribute('contenteditable');el.innerHTML=a?a.innerHTML:'<p class="none">No notes for this slide.</p>'}el.scrollTop=0}
+function notesInput(){const sl=slides[edCur];if(!sl)return;let a=sl.querySelector('aside.notes');
+  if(!a){a=document.createElement('aside');a.className='notes';sl.appendChild(a)}a.innerHTML=notesEl().innerHTML;edDirty()}
+document.addEventListener('input',e=>{if(!EDIT||!(e.target instanceof Element))return;
+  if(e.target.closest('#pvNotes,#edNotes'))notesInput();else if(slides[edCur]&&slides[edCur].contains(e.target))edDirty()});
+document.addEventListener('focusout',e=>{if(EDIT&&e.target instanceof Element&&e.target.closest('#stage .slide,#pvNotes,#edNotes'))edCommit()});
+/* paste as plain text so slide styling survives */
+document.addEventListener('paste',e=>{if(!(e.target instanceof Element)||!(EDIT?e.target.closest('[contenteditable]'):e.target.closest('[data-board]')))return;
+  e.preventDefault();const t=(e.clipboardData&&e.clipboardData.getData('text/plain'))||'';document.execCommand('insertText',false,t)});
+function editOn(){if(STUDENT||READER||EDIT)return;if(tool)setTool(tool);resetZoom();$$('.overlay.on').forEach(o=>{if(o.id!=='blank'&&o.id!=='whiteout')o.classList.remove('on')});
+  EDIT=true;edCur=-1;edUI();document.body.classList.add('editing');step=0;prevCur=-1;render();fit();
+  toast('Editing: click any text on the slide'+(PRESENTER?' or in the notes':' or in the notes panel')+'. Esc when done.',4500)}
+function editOff(){if(!EDIT)return;edCommit();const i=edCur;EDIT=false;edCur=-1;edSnap=[];document.body.classList.remove('editing');
+  if(i>=0)replaceLive(i,false);prevCur=-1;render();fillNotes();fit();$$('#pvTools [data-act="edit"]').forEach(b=>b.classList.remove('on'));
+  const c=changedCount();toast(c?`${c} slide${c>1?'s':''} changed. Kept in this browser; Shift+E then Save… to put them in the file.`:'No changes.',4500)}
+function edToggleHidden(){const sl=slides[edCur];if(!sl)return;sl.toggleAttribute('data-hidden');edCommit();relayout();render()}
+function edToggleDel(){if(edCur<0)return;DEL.has(edCur)?DEL.delete(edCur):DEL.add(edCur);edSave();send({t:'del',d:[...DEL]});relayout();render()}
+function edRevert(){if(edCur<0||SRC[edCur]===PRISTINE[edCur])return;SRC[edCur]=PRISTINE[edCur];replaceLive(edCur,true);edSave();send({t:'slide',i:edCur,h:SRC[edCur]});relayout();render();fillNotes()}
+function edUI(){if($('#edBar'))return;const bar=document.createElement('div');bar.id='edBar';bar.setAttribute('role','toolbar');bar.setAttribute('aria-label','Edit slides');
+  bar.innerHTML='<b>Editing</b><button type="button" data-ed="prev" title="Previous slide">‹</button><span id="edWhich"></span><button type="button" data-ed="next" title="Next slide">›</button>'+
+    '<button type="button" data-ed="hide"></button><button type="button" data-ed="del"></button><button type="button" data-ed="revert" title="Put this slide back as it is in the file">Undo my changes here</button>'+
+    '<span class="sp"></span><span id="edStatus"></span><button type="button" data-ed="save" class="pri">Save…</button><button type="button" data-ed="done">Done</button>';
+  document.body.appendChild(bar);
+  bar.addEventListener('mousedown',e=>{if(e.target.closest('button'))e.preventDefault()});
+  bar.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const a=b.dataset.ed;
+    if(a==='prev')prev();else if(a==='next')next();else if(a==='hide')edToggleHidden();else if(a==='del')edToggleDel();else if(a==='revert')edRevert();else if(a==='save')openSave();else if(a==='done')editOff()});
+  if(!PRESENTER){const w=document.createElement('div');w.id='edNotesWrap';w.innerHTML='<div class="lbl">Speaker notes for this slide (not shown to the audience)</div><div id="edNotes"></div>';document.body.appendChild(w)}
+  const sv=document.createElement('div');sv.className='overlay';sv.id='edSave';sv.innerHTML=`<div class="box" role="dialog" aria-label="Save changes">
+    <h2>Save your changes</h2><p id="edSum"></p>
+    <p class="note">Your edits are kept automatically in this browser on this computer, so they are still here next time you open this same file or link here. To keep them anywhere else, put them into the deck:</p>
+    <div class="acts">
+      <div class="act" data-row="fs"><button type="button" data-sv="fs" class="pri">Save to this file</button><span><span id="fsDesc"></span> <button type="button" data-sv="fspick" class="lnk">Choose a different file</button></span></div>
+      <div class="act" data-row="prev" style="display:none"><button type="button" data-sv="prev">Download previous version</button><span>The deck as it was before your last save to the file, in case you need to go back.</span></div>
+      <div class="act" data-row="link"><button type="button" data-sv="link" class="pri">Save to this link</button><span>Updates the deck at its link on Claude, for you and anyone you shared it with. The page reloads.</span></div>
+      <div class="act"><button type="button" data-sv="file">Download edited deck</button><span>An .html file with your changes built in. Use it in place of your old copy.</span></div>
+      <div class="act"><button type="button" data-sv="student">Download student copy</button><span>No speaker notes; hidden and deleted slides left out. Send this one to students.</span></div>
+      <div class="act"><button type="button" data-sv="discard" class="warn">Discard all changes</button><span>Back to the deck as it is in the file.</span></div>
+    </div><p id="edMsg" role="status"></p><p style="text-align:right;margin:0"><button type="button" data-sv="close">Close</button></p></div>`;
+  document.body.appendChild(sv);
+  sv.addEventListener('click',async e=>{if(e.target===sv){sv.classList.remove('on');return}const b=e.target.closest('button');if(!b)return;const a=b.dataset.sv;
+    if(a==='close')sv.classList.remove('on');else if(a==='link')saveLink();else if(a==='fs')saveToFile(false);else if(a==='fspick')saveToFile(true);else if(a==='prev')downloadPrevious();else if(a==='file')saveFile(false);else if(a==='student')saveFile(true);
+    else if(a==='discard'){if(b.dataset.armed){delete b.dataset.armed;b.textContent='Discard all changes';discardAll()}else{b.dataset.armed='1';b.textContent='Click again to discard';setTimeout(()=>{delete b.dataset.armed;b.textContent='Discard all changes'},4000)}}})}
+function edBarUpdate(){if(!$('#edBar'))return;const sl=slides[cur],hid=sl.hasAttribute('data-hidden'),del=DEL.has(cur);
+  $('#edWhich').textContent=`Slide ${cur+1} of ${n}`+(del?' · deleted':hid?' · hidden':'');
+  const hb=$('#edBar [data-ed=hide]');hb.textContent=hid?'Unhide slide':'Hide slide';hb.title=hid?'Show this slide when presenting again':'Keep the slide but skip it when presenting (and leave it out of student copies)';
+  const db=$('#edBar [data-ed=del]');db.textContent=del?'Restore slide':'Delete slide';db.title=del?'Keep this slide':'Removed from the deck when you save';
+  $('#edBar [data-ed=revert]').disabled=SRC[cur]===PRISTINE[cur];$('#edBar [data-ed=prev]').disabled=cur===0;$('#edBar [data-ed=next]').disabled=cur===n-1;
+  const c=changedCount();$('#edStatus').textContent=c?`${c} slide${c>1?'s':''} changed · kept in this browser`:'No changes yet';
+  $$('#pvTools [data-act="edit"]').forEach(b=>b.classList.toggle('on',EDIT));
+  if(sl.querySelector('.flip,[data-tabs],[data-toggle]')&&!edBarUpdate.tipped){edBarUpdate.tipped=1;setTimeout(()=>toast('Tip: Alt+click a card or tab to turn it over or switch it, then edit that side.',5000),600)}}
+/* the whole document is regenerated from the shell template the build embedded, never from the live page */
+function buildDoc(student){const te=$('#deck-shell');let tpl=null;try{tpl=te&&JSON.parse(te.textContent)}catch(e){}
+  if(typeof tpl!=='string')return null;edCommit();
+  const J=o=>JSON.stringify(o).replace(/</g,'\\u003c');const cfg=Object.assign({},window.DECK_CONFIG||{});
+  const withBoards=h=>{if(!/data-board/.test(h))return h;const el=parseSlide(h);if(!el)return h;
+    el.querySelectorAll('[data-board]').forEach(b=>{const k=b.dataset.board;if(BOARDS[k]!=null)b.innerHTML=BOARDS[k];b.removeAttribute('contenteditable');b.removeAttribute('spellcheck')});return el.outerHTML};
+  let parts=[];SRC.forEach((h0,i)=>{if(DEL.has(i))return;const h=withBoards(h0);if(!student){parts.push(h);return}const el=parseSlide(h);if(!el||el.hasAttribute('data-hidden'))return;
+    el.querySelectorAll('aside.notes').forEach(x=>x.remove());parts.push(el.outerHTML)});
+  if(student){cfg.student=true;cfg.id=(cfg.id||CFG.id)+'-student'}
+  const txt=id=>{const e=document.getElementById(id);return e?e.textContent.replace(/^\n/,'').replace(/\n$/,''):''};
+  const map={ENGINE_CSS:txt('deck-engine-css'),THEME_CSS:txt('deck-theme-css'),ENGINE_JS:txt('deck-engine-js'),DECK_JS:txt('deck-js'),
+    CONFIG_JSON:J(cfg),IMAGES_JSON:J(window.DECK_IMAGES||{}),SLIDES:parts.join('\n'),SHELL_JSON:student?'null':J(tpl)};
+  let out=tpl.replace(/\{\{(\w+)\}\}/g,(m,k)=>Object.prototype.hasOwnProperty.call(map,k)?map[k]:m);
+  if(student)out=out.replace(/<title>([\s\S]*?)<\/title>/,(m,t)=>'<title>'+t+' (student copy)</title>');
+  return out}
+const fileName=student=>((document.title||'deck').replace(/^Presenter · /,'').replace(/[^\w\- ]+/g,'').trim().replace(/\s+/g,'-').toLowerCase()||'deck')+(student?'-student':'')+'.html';
+const edMsg=t=>{const m=$('#edMsg'),sv=$('#edSave');if(m)m.textContent=t;if(t&&!(sv&&sv.classList.contains('on')))toast(t,5000)};
+async function cap(name){try{if(window.claude&&typeof window.claude.use==='function')return await window.claude.use(name)}catch(e){}return null}
+function openSave(){edUI();edCommit();const sv=$('#edSave');const c=changedCount();
+  $('#edSum').textContent=c?`${c} slide${c>1?'s':''} changed`+(DEL.size?`, ${DEL.size} marked for deletion`:'')+(vis.length<n-DEL.size?`, ${n-DEL.size-vis.length} hidden`:'')+'.':'No changes yet. You can still download copies.';
+  edMsg('');const row=$('[data-row=link]',sv);row.style.display='none';sv.classList.add('on');
+  const fr=$('[data-row=fs]',sv);fr.style.display=FS_OK?'':'none';
+  if(FS_OK)linkedFile().then(h=>{$('#fsDesc',sv).textContent=h?`Writes your changes into ${h.name} on this computer. From now on Ctrl+S saves straight to it.`:'Writes your changes into the deck file on this computer. The first time, choose the .html file you opened; after that Ctrl+S saves straight to it.';$('[data-sv=fspick]',sv).style.display=h?'':'none'});
+  if(FS_OK)idbGet(BKEY).then(b=>{$('[data-row=prev]',sv).style.display=b?'':'none'});
+  if(!$('#deck-shell')||$('#deck-shell').textContent.trim()==='null'){edMsg('This file was built without the save feature. Rebuild it with the current lecture-deck engine to save edits into the file.');return}
+  if(!ART)ART=cap('artifact');ART.then(a=>{if(a&&!ART_RO)row.style.display=''})}
+let ART_RO=false;
+async function saveLink(){const html=buildDoc(false);if(!html){edMsg('Could not build the deck file.');return}const a=await ART;if(!a){edMsg('Saving to the link only works in the main deck window on Claude.');return}
+  edMsg('Saving…');try{await a.publish(html);edMsg('Saved. Reloading…')}
+  catch(err){const c=err&&err.code;
+    if(c==='conflict')edMsg('A newer version was saved somewhere else, so this page is reloading to it. Download your edited deck first if you need these changes.');
+    else if(c==='not_writer'||c==='not_granted'||c==='not_declared'||c==='consent_required'||c==='capability_disabled'){ART_RO=true;$('[data-row=link]').style.display='none';edMsg('This copy can’t be saved to its link from here. Use Download edited deck instead.')}
+    else if(c==='too_large')edMsg('The deck is too large to save to the link. Download it instead.');
+    else if(c==='rate_limited')edMsg('Saved too often in a short time. Wait a minute and try again.');
+    else edMsg('Saving failed ('+(c||'error')+'). Your edits are still kept in this browser; try again or download the deck.')}}
+async function saveFile(student){const html=buildDoc(student);if(!html){edMsg('Could not build the deck file.');return}await offerFile(fileName(student),html)}
+async function offerFile(name,html){
+  if(!DLS)DLS=cap('downloads');const d=await DLS;
+  if(d){try{await d.save({filename:name,data:html});edMsg('Downloaded '+name+'.');return}catch(err){if(err&&err.code==='declined'){edMsg('Download cancelled.');return}}}
+  try{const u=URL.createObjectURL(new Blob([html],{type:'text/html'}));const l=document.createElement('a');l.href=u;l.download=name;document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(u),5000);edMsg('Downloaded '+name+'.')}
+  catch(e){edMsg('This browser blocked the download.')}}
+/* ---------- save straight into the deck file (Chrome/Edge: File System Access) ----------
+   The first save asks for the deck's .html file once; the file handle is kept in
+   IndexedDB so later saves (Ctrl+S) write into it directly, after the browser's
+   one-click "allow editing" prompt each session. The file's previous contents are
+   kept as a backup that can be downloaded. Both windows reload afterwards, so the
+   page runs the file it just wrote. */
+const FS_OK=!STUDENT&&typeof window.showSaveFilePicker==='function';
+const HKEY='file:'+CFG.id, BKEY='backup:'+CFG.id;let fileH=null;
+function idb(){return new Promise((res,rej)=>{let r;try{r=indexedDB.open('lecture-deck',1)}catch(e){rej(e);return}r.onupgradeneeded=()=>r.result.createObjectStore('h');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+async function idbGet(k){try{const db=await idb();return await new Promise(res=>{const q=db.transaction('h').objectStore('h').get(k);q.onsuccess=()=>res(q.result||null);q.onerror=()=>res(null)})}catch(e){return null}}
+async function idbSet(k,v){try{const db=await idb();await new Promise(res=>{const t=db.transaction('h','readwrite');t.oncomplete=res;t.onerror=res;t.onabort=res;t.objectStore('h').put(v,k)})}catch(e){}}
+async function linkedFile(){if(!fileH)fileH=await idbGet(HKEY);return fileH}
+const deckFileName=()=>{let f='';try{f=decodeURIComponent(location.pathname.split('/').pop()||'')}catch(e){}return /\.html?$/i.test(f)?f:fileName(false)};
+async function pickFile(){let h;
+  try{h=await window.showSaveFilePicker({suggestedName:deckFileName(),types:[{description:'Lecture deck',accept:{'text/html':['.html','.htm']}}]})}
+  catch(e){if(e&&e.name!=='AbortError')edMsg('Could not open the file picker ('+e.name+').');return null}
+  let t='';try{const f=await h.getFile();t=f.size?await f.text():''}catch(e){}
+  if(t&&!t.includes('window.DECK_CONFIG')){edMsg('That file isn’t a lecture deck, so nothing was saved. Choose the deck’s own .html file.');return null}
+  if(t&&!t.includes('"id": "'+CFG.id+'"')&&!t.includes('"id":"'+CFG.id+'"')){edMsg('That file is a different deck, so nothing was saved. Choose '+deckFileName()+'.');return null}
+  fileH=h;await idbSet(HKEY,h);return h}
+async function saveToFile(repick){if(!FS_OK){openSave();return}const html=buildDoc(false);if(!html){edMsg('Could not build the deck file.');return}
+  let h=repick?null:await linkedFile();
+  if(h){try{if((await h.queryPermission({mode:'readwrite'}))!=='granted'&&(await h.requestPermission({mode:'readwrite'}))!=='granted'){edMsg('Editing the file wasn’t allowed, so nothing was saved. Your changes are still kept in this browser.');return}}catch(e){h=null}}
+  if(!h){h=await pickFile();if(!h)return}
+  edMsg('Saving to '+h.name+'…');
+  try{let old='';try{const f=await h.getFile();old=f.size?await f.text():''}catch(e){}
+    if(old&&old!==html)await idbSet(BKEY,old);
+    const w=await h.createWritable();await w.write(html);await w.close()}
+  catch(e){edMsg('Couldn’t write to '+h.name+' ('+(e&&e.name||'error')+'). Your changes are still kept in this browser; try Download edited deck instead.');return}
+  store.del(EKEY);edMsg('Saved to '+h.name+'. Reloading…');send({t:'reload'});setTimeout(()=>location.reload(),700)}
+async function quickSave(){edUI();if(EDIT)edCommit();
+  if(FS_OK&&await linkedFile()){if(!changedCount()){edMsg('No changes to save.');return}saveToFile(false);return}openSave()}
+async function downloadPrevious(){const b=await idbGet(BKEY);if(!b){edMsg('No previous version kept.');return}await offerFile(deckFileName().replace(/\.html?$/i,'')+'-previous.html',b)}
+function discardAll(){SRC.forEach((h,i)=>{if(h!==PRISTINE[i]){SRC[i]=PRISTINE[i];replaceLive(i,EDIT&&i===edCur);send({t:'slide',i,h:SRC[i]})}});
+  DEL.clear();send({t:'del',d:[]});store.del(EKEY);relayout();render();fillNotes();edMsg('All changes discarded.')}
+
+/* ---------- phone / reader mode ----------
+   Narrow or short screens get a reflowed, scrolling layout: one slide at a
+   time, stacked columns, phone-sized type, bottom navigation bar. Chosen
+   automatically; ?view=reader or ?view=slides forces a mode; config.mobile
+   "off" disables it. Font sizes are mapped from each element's own desktop
+   size so custom themes scale too. Every change is recorded and reverted
+   exactly when the screen becomes wide again. */
+function wantReader(){if(PRESENTER||CFG.mobile==='off'||VIEW==='slides')return false;if(VIEW==='reader'||TOUCH_PHONE)return true;return innerWidth<900||innerHeight<500}
+/* phones: the hint becomes a tappable diagnostics/help line (no keyboard there) */
+function diagText(){const v=$('#viewport'),vv=window.visualViewport;return `mode ${READER?'phone':'slides'} · window ${innerWidth}×${innerHeight} · screen ${screen.width}×${screen.height} · box ${v.clientWidth}×${v.clientHeight}`+(vv?` · visual ${Math.round(vv.width)}×${Math.round(vv.height)}`:'')+` · touch ${IS_TOUCH?'yes':'no'} phone ${TOUCH_PHONE?'yes':'no'} · ${navigator.userAgent.replace(/^.*?\(/,'(').slice(0,60)}`}
+(function(){const h=$('#hint');if(!h)return;if(!IS_TOUCH)return;
+  h.classList.add('diag');h.style.pointerEvents='auto';h.style.cursor='pointer';h.style.zIndex=90;h.textContent='Tap slide: next · Swipe: back/next · Hold: all slides · Tap here if blank';
+  h.addEventListener('click',e=>{e.stopPropagation();if(h.dataset.open){delete h.dataset.open;h.removeAttribute('style');h.textContent='Tap slide: next · Swipe: back/next · Hold: all slides';setTimeout(()=>{h.style.opacity=0;h.style.pointerEvents='none'},2500);return}h.dataset.open=1;h.style.opacity=1;h.style.whiteSpace='normal';h.style.maxWidth='92vw';h.style.background='var(--bg2)';h.style.padding='8px 12px';h.style.borderRadius='8px';h.style.fontSize='13px';
+    h.innerHTML=diagText()+'<br><button type="button" id="hintPhone" style="margin-top:6px;font-size:15px;padding:6px 12px">Switch to phone layout</button>';
+    const b=$('#hintPhone');b&&b.addEventListener('click',ev=>{ev.stopPropagation();if(!READER){enterReader();prevCur=-1;render()}h.textContent=diagText()})})})();
+const fmap=px=>px<=29?Math.max(11.5,px*.6):17.4+(px-29)*.3;
+const RCH=[];
+function rset(el,prop,val,imp){RCH.push([el,prop,el.style.getPropertyValue(prop),el.style.getPropertyPriority(prop)]);el.style.setProperty(prop,val,imp?'important':'')}
+function tracksNeed(t){if(!t||t==='none')return 0;t=t.replace(/repeat\((\d+),\s*([^()]*(?:\([^()]*\))?[^()]*)\)/g,(m,c,v)=>Array(+c).fill(v.trim()).join(' '));
+  const tr=t.match(/(?:[\w.%-]+\([^()]*\)|[^\s()]+)/g)||[];if(tr.length<2)return 0;return tr.reduce((a,x)=>{const m=/^([\d.]+)px$/.exec(x);return a+(m?+m[1]:200)},0)}
+const NOGRID='.grid2,.grid3,.grid4,.rank-row,.bar-row,.quiz-item,.flip .inner';
+const NOFLEX='.row,.dial,.timeline,.timeline *,.continuum *,.card,.card *,.flip *,.quiz-item *,.rank-row *,.bar-row *,.fig';
+const INLINEISH='button,.btn,.tag,.sort-item,.pick,span,a,kbd,strong,em,img.thumb,label';
+function enterReader(){if(document.body.classList.contains('reader'))return;
+  const avail=Math.min(innerWidth,760)-32,k=clamp(innerWidth/400,1,1.3),jobs=[];
+  slides.forEach(s=>s.querySelectorAll('*').forEach(el=>{const tg=el.tagName.toLowerCase();if(el.closest('aside.notes'))return;if(el.closest('svg')&&tg!=='svg')return;
+    const cs=getComputedStyle(el);jobs.push([el,parseFloat(cs.fontSize),cs.display,cs.gridTemplateColumns,cs.flexDirection])}));
+  document.body.classList.add('reader');document.documentElement.classList.add('reader-html');READER=true;
+  jobs.forEach(([el,fs,disp,gtc,fd])=>{const st=el.style;
+    if(fs&&el.tagName.toLowerCase()!=='svg')rset(el,'font-size',(fmap(fs)*k).toFixed(1)+'px');
+    if(st.position==='absolute'){rset(el,'position','static');['top','left','right','bottom'].forEach(p=>{if(st.getPropertyValue(p))rset(el,p,'')})}
+    if(parseFloat(st.marginTop)>28)rset(el,'margin-top','14px');
+    if(parseFloat(st.gap)>24)rset(el,'gap','14px');
+    if(parseFloat(st.minHeight)>120)rset(el,'min-height','0');
+    if(/grid/.test(disp)&&!el.matches(NOGRID)&&tracksNeed(gtc)>avail)rset(el,'grid-template-columns','minmax(0,1fr)',true);
+    if(/flex/.test(disp)&&fd==='row'&&!el.matches(NOFLEX)){const kids=[...el.children].filter(c=>!c.matches('aside.notes'));
+      if(kids.length>1){if(kids.every(c=>c.matches(INLINEISH)))rset(el,'flex-wrap','wrap');else{rset(el,'flex-direction','column',true);rset(el,'align-items','stretch',true)}}}});
+  if(!mnav){mnav=document.createElement('nav');mnav.id='mnav';mnav.setAttribute('aria-label','Slide navigation');
+    mnav.innerHTML='<i class="bar"></i><button type="button" data-m="prev" aria-label="Previous slide">‹</button><button type="button" data-m="mid" class="mid" aria-label="All slides"><span class="num"></span><span class="sec"></span></button><button type="button" data-m="next" aria-label="Next slide">›</button>';
+    document.body.appendChild(mnav);mnav.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const a=b.dataset.m;if(a==='prev')prev();else if(a==='next')next();else toggleOverview()})}
+  if(tool)setTool(tool,false);stage.style.transform='';
+  if(step<frags(cur).length)step=frags(cur).length}
+function exitReader(){if(!document.body.classList.contains('reader'))return;
+  for(let i=RCH.length-1;i>=0;i--){const[el,p,v,pr]=RCH[i];if(v)el.style.setProperty(p,v,pr);else el.style.removeProperty(p)}RCH.length=0;
+  document.body.classList.remove('reader');document.documentElement.classList.remove('reader-html');READER=false;fit()}
+let lastRW=innerWidth;
+addEventListener('resize',()=>{const w=wantReader();
+  if(w!==READER){w?enterReader():exitReader();prevCur=-1;render()}
+  else if(READER&&Math.abs(innerWidth-lastRW)>80){exitReader();enterReader()}
+  lastRW=innerWidth});
+if(STUDENT){const h=$('#hint');if(h&&h.style.pointerEvents!=='auto')h.textContent='Arrow keys or swipe to move · ? for controls'}
+
+/* ---------- start ---------- */
+if(wantReader())enterReader();
+fit();
+let startIdx=0;const hn=parseInt((location.hash||'').replace('#',''),10);
+if(!PRESENTER&&!isNaN(hn)&&hn>=1&&hn<=n)startIdx=hn-1;
+else if(STUDENT){const sv=+(store.get('deck-slide:'+CFG.id)||0);if(sv>0&&sv<n){startIdx=sv;setTimeout(()=>toast('Picked up where you left off: slide '+(sv+1)+'. Tap the counter for all slides.',3500),400)}}
+cur=startIdx;step=READER?frags(cur).length:0;prevCur=-1;render();
+send({t:'hello'});
+requestAnimationFrame(fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+
+window.DECK={go:(i,all)=>go(i,all),next,prev,get index(){return cur},get step(){return step},slides,meta,
+  onEnter:f=>hooks.enter.push(f),onRender:f=>hooks.render.push(f),loadImages,toast,pushUndo:f=>{(hist[cur]||(hist[cur]=[])).push({k:'fn',f})},resetSlide:i=>resetSlide(i==null?cur:i),
+  setProgressPath:f=>{progressPath=f;buildProgress();render()},config:CFG,presenter:PRESENTER,get reader(){return READER},student:STUDENT};
+})();
+
+</script>
+<script id="deck-js">
+
+</script>
+</body>
+</html>
