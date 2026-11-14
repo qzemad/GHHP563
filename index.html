@@ -24,6 +24,12 @@
   .ttl{font-weight:600}
   .sub{display:block;font-weight:400;color:var(--muted);font-size:14px;margin-top:2px}
   .go{margin-left:auto;color:var(--muted);font-size:22px}
+  details.part{margin:18px 0 0}
+  details.part>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 4px;border-bottom:1px solid var(--line);font-weight:700;font-size:17px;user-select:none}
+  details.part>summary::-webkit-details-marker{display:none}
+  details.part>summary::before{content:"›";color:var(--c);font-size:22px;line-height:1;width:14px;text-align:center;transition:transform .15s}
+  details.part[open]>summary::before{transform:rotate(90deg)}
+  details.part>summary .range{margin-left:auto;font-weight:400;font-size:14px;color:var(--muted)}
   footer{margin-top:40px;color:var(--muted);font-size:13px}
 </style>
 </head>
@@ -36,7 +42,8 @@
        HOW TO ADD A LECTURE
        1. Upload the student copy to GitHub (e.g. hp-lecture4.html).
        2. Copy ONE block below, from <a class="lec" ...> to </a>,
-          and paste it underneath the last lecture of that course.
+          and paste it underneath the last lecture in the
+          "Final Exam" section (above the "paste the next" comment).
        3. Change three things: the file name in href="...",
           the "Lecture N" number, and the title (and the small subtitle line).
        ===================================================================== -->
@@ -46,36 +53,58 @@
     <h2>Health Psychology</h2>
     <p class="code">GHHP 563 · Morrison and Bennett, <em>An Introduction to Health Psychology</em></p>
 
-    <a class="lec" href="hp-lecture1.html">
-      <span class="num">Lecture 1</span>
-      <span class="ttl">What is health?<span class="sub">Chapter 1: perspectives and models of health</span></span>
-      <span class="go">›</span>
-    </a>
+    <!-- MIDTERM: collapsed by default (no "open" attribute) -->
+    <details class="part">
+      <summary>Midterm<span class="range">Lectures 1–5</span></summary>
 
-    <a class="lec" href="hp-lecture2.html">
-      <span class="num">Lecture 2</span>
-      <span class="ttl">Who gets to be healthy?<span class="sub">Chapter 1 (continued) and Chapter 2: health inequalities</span></span>
-      <span class="go">›</span>
-    </a>
+      <a class="lec" href="hp-lecture1.html">
+        <span class="num">Lecture 1</span>
+        <span class="ttl">What is health?<span class="sub">Chapter 1: perspectives and models of health</span></span>
+        <span class="go">›</span>
+      </a>
 
-    <a class="lec" href="hp-lecture3.html">
-      <span class="num">Lecture 3</span>
-      <span class="ttl">Living dangerously?<span class="sub">Chapter 3: health-risk behaviour</span></span>
-      <span class="go">›</span>
-    </a>
+      <a class="lec" href="hp-lecture2.html">
+        <span class="num">Lecture 2</span>
+        <span class="ttl">Who gets to be healthy?<span class="sub">Chapter 1 (continued) and Chapter 2: health inequalities</span></span>
+        <span class="go">›</span>
+      </a>
 
-     <a class="lec" href="hp-lecture4.html">
-      <span class="num">Lecture 4</span>
-      <span class="ttl">Protecting your health.<span class="sub">Chapter 4: health Enhancing behaviour</span></span>
-      <span class="go">›</span>
-    </a>
+      <a class="lec" href="hp-lecture3.html">
+        <span class="num">Lecture 3</span>
+        <span class="ttl">Living dangerously?<span class="sub">Chapter 3: health-risk behaviour</span></span>
+        <span class="go">›</span>
+      </a>
 
-    <a class="lec" href="hp-lecture5.html">
-      <span class="num">Lecture 5</span>
-      <span class="ttl">Explaining and changing behaviour<span class="sub">Chapter 5: Explaining behaviour & Chapter 6: Changing behaviour</span></span>
-      <span class="go">›</span>
-    </a>
-    <!-- paste the next Health Psychology lecture here -->
+      <a class="lec" href="hp-lecture4.html">
+        <span class="num">Lecture 4</span>
+        <span class="ttl">Protecting your health.<span class="sub">Chapter 4: health Enhancing behaviour</span></span>
+        <span class="go">›</span>
+      </a>
+
+      <a class="lec" href="hp-lecture5.html">
+        <span class="num">Lecture 5</span>
+        <span class="ttl">Explaining and changing behaviour<span class="sub">Chapter 5: Explaining behaviour &amp; Chapter 6: Changing behaviour</span></span>
+        <span class="go">›</span>
+      </a>
+    </details>
+
+    <!-- FINAL EXAM: open by default -->
+    <details class="part" open>
+      <summary>Final Exam<span class="range">Lecture 6 onwards</span></summary>
+
+      <a class="lec" href="hp-lecture6.html">
+        <span class="num">Lecture 6</span>
+        <span class="ttl">Public health<span class="sub">Taylor, <em>Health Psychology</em>: public health</span></span>
+        <span class="go">›</span>
+      </a>
+
+      <a class="lec" href="hp-lecture7.html">
+        <span class="num">Lecture 7</span>
+        <span class="ttl">The body in health and illness<span class="sub">Chapter 8: the body in health and illness</span></span>
+        <span class="go">›</span>
+      </a>
+      <!-- paste the next Health Psychology lecture here -->
+    </details>
   </section>
 
   <footer>Slides open in your browser. If a page looks blank, open this site in Safari or Chrome rather than a file preview.</footer>
